@@ -1,0 +1,4 @@
+truncate barang;
+truncate barang_detail;
+truncate hapus;
+TRUNCATE hapus_detail;

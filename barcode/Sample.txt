@@ -1,0 +1,1 @@
+<img alt="testing" src="barcode/barcode.php?text=<?= $r['id_barang_detail']; ?>" />
