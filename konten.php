@@ -94,7 +94,15 @@
 	elseif ($_GET['p']=='hapusitem-rinci') {
 		include "konten/hapusitem-rinci.php";}
 	elseif ($_GET['p']=='hapusitem-aksi'&&$tipeakses=='Yayasan') {
-		include "konten/hapusitem-aksi.php";}		
+		include "konten/hapusitem-aksi.php";}
+	elseif ($_GET['p']=='statistikinven') {
+			include "konten/statistikinven.php";}			
+	elseif ($_GET['p']=='statistikinven2') {
+			include "konten/statistikinven2.php";}			
+	elseif ($_GET['p']=='statistikinven3') {
+			include "konten/statistikinven3.php";}			
+	elseif ($_GET['p']=='statistikunit') {
+			include "konten/statistikunit.php";}			
 	else {
 		include "konten/akses_ditolak.php";
 	}																			

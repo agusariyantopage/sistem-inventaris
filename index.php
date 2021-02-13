@@ -355,16 +355,16 @@ if($jumlah_delete>=1){
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="index.php?p=statistikinven" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Pengajuan</p>
+                  <p>Statistik Inventaris</p>
                 </a>
               </li>              
 
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Pelaporan</p>
+                  <p>Statistik Unit Kerja</p>
                 </a>
               </li> 
                            
