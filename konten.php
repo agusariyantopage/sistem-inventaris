@@ -95,12 +95,14 @@
 		include "konten/hapusitem-rinci.php";}
 	elseif ($_GET['p']=='hapusitem-aksi'&&$tipeakses=='Yayasan') {
 		include "konten/hapusitem-aksi.php";}
-	elseif ($_GET['p']=='statistikinven') {
+	elseif ($_GET['p']=='statistikinven'&&$tipeakses=='Yayasan') {
 			include "konten/statistikinven.php";}			
-	elseif ($_GET['p']=='statistikinven2') {
+	elseif ($_GET['p']=='statistikinven2'&&$tipeakses=='Yayasan') {
 			include "konten/statistikinven2.php";}			
-	elseif ($_GET['p']=='statistikinven3') {
-			include "konten/statistikinven3.php";}			
+	elseif ($_GET['p']=='statistikinven3'&&$tipeakses=='Yayasan') {
+			include "konten/statistikinven3.php";}
+	elseif ($_GET['p']=='statistikunit'&&$tipeakses=='Yayasan') {
+		include "konten/statistikunit.php";}					
 	elseif ($_GET['p']=='statistikunit') {
 			include "konten/statistikunit.php";}			
 	else {
