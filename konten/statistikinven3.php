@@ -1,3 +1,19 @@
+<?php
+  $id=$_GET['id'];
+  $sql1="select * from subkategori where id_subkategori=$id";
+  //echo $sql1;
+  $query1=mysqli_query($koneksi,$sql1);
+  $kol1=mysqli_fetch_array($query1);
+  $judul=$kol1['subkategori'];
+
+  $idkat=$_GET['idkat'];
+  $sql2="select * from kategori where id_kategori=$idkat";
+  //echo $sql1;
+  $query2=mysqli_query($koneksi,$sql2);
+  $kol2=mysqli_fetch_array($query2);
+  $judul2=$kol2['kategori'];
+
+?>
 <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -7,8 +23,10 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Statistik</a></li>              
-              <li class="breadcrumb-item active">Inventaris</li>
+              <li class="breadcrumb-item"><a href="#">Statistik</a></li> 
+              <li class="breadcrumb-item"><a href="index.php?p=statistikinven">Inventaris Umum</a></li>
+              <li class="breadcrumb-item"><a href="index.php?p=statistikinven2&id=<?= $idkat; ?>"><?= $judul2; ?></a></li> 
+              <li class="breadcrumb-item active"><?= $judul; ?></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

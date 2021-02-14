@@ -8,7 +8,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Statistik</a></li>              
-              <li class="breadcrumb-item active">Inventaris Per Kategori</li>
+              <li class="breadcrumb-item active">Inventaris Umum</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
