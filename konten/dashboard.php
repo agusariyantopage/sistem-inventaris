@@ -103,7 +103,7 @@ var x = setInterval(function() {
         <!-- Info boxes -->
         <div class="row">
           <div class="col-12">
-          <div id="demo" class='alert alert-info role=alert text-center'></div>
+          <div id="demo" class='alert alert-info role=alert text-center'><b>Batas Akhir Finalisasi Data Awal :</b></div>
           </div>
         </div>
         <div class="row">
