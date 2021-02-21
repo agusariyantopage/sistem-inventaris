@@ -34,7 +34,7 @@
                 <a href="pdf/examples/print-barcode2d.php" target="blank">
                   <button class="btn btn-success mb-2">Cetak QR-Code</button>
                 </a>
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="inventaris-rinci"  class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>ID </th>
@@ -46,61 +46,6 @@
                     <th>Catatan</th>
                   </tr>
                   </thead>
-                  <tbody>
-                    <?php
-                      //$sql="select barang.*,kategori,subkategori from barang,kategori,subkategori where barang.id_subkategori=subkategori.id_subkategori and kategori.id_kategori=subkategori.id_kategori";
-                      // Akses Yayasan / Unit Kerja
-                      if($_SESSION['level']==1) {
-                        $sql="select barang_detail.*,barang.*,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja";
-                      } else {
-                        $id_unit= $_SESSION['idunit'];
-                        $sql="select barang_detail.*,barang.*,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja and barang_detail.id_unitkerja=$id_unit";
-                      }
-                      // -- Akses Yayasan / Unit Kerja 
-                      
-                      // echo $sql;
-                      $perintah=mysqli_query($koneksi,$sql);
-                      while ($r=mysqli_fetch_array($perintah)) {     
-                    ?>              
-                      <tr>
-                        <td>
-                          <?= $r['id_barang_detail']; ?>
-                            
-                          </td>                        
-                        <td><?= $r['deskripsi']; ?></td>                         
-                        <td><?= $r['spesifikasi']; ?></td> 
-                        <td>
-                          <?php
-                            if ($r['kondisi']=='Baik') {
-                              echo "<span class='badge badge-success'>";
-                            } else {
-                              echo "<span class='badge badge-danger'>";
-                            }
-                           echo $r['kondisi']; 
-                           echo "</span>";
-                           ?>                          
-                        </td> 
-                        <td><?= $r['nama_panjang']; ?></td>
-                        <td><?= $r['lokasi']; ?></td> 
-                        <td><?= $r['catatan']; ?></td> 
-                        
-                      </tr>
-                  <?php
-                    }
-                  ?>                     
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>ID </th>
-                    <th>Deskripsi</th>
-                    <th>Spesifikasi</th> 
-                    <th>Kondisi</th> 
-                    <th>Unit</th>                   
-                    <th>Lokasi Barang</th>
-                    <th>Catatan</th> 
-                    
-                  </tr>
-                  </tfoot>
                 </table><br>
                 
               </div>
@@ -115,4 +60,24 @@
       <!-- /.container-fluid -->
     </section>
             <!-- Main content -->
-    
+<!-- import jquery -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+<script>
+    $(function() {
+    $('#inventaris-rinci').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "paging": true,
+        "lengthChange": false,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+        "ajax": "server-side/datarinci.php"
+           // ,"ajax": "server-side/datarinci.php"   
+    } );
+}) ;
+
+</script>
