@@ -75,8 +75,7 @@
         "info": true,
         "autoWidth": false,
         "responsive": true,
-        "ajax": "server-side/datarinci.php"
-           // ,"ajax": "server-side/datarinci.php"   
+        "ajax": "server-side/datarinci.php" 
     } );
 }) ;
 

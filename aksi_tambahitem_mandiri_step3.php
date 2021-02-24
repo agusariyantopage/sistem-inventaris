@@ -3,7 +3,7 @@
 	include "koneksi.php";
 
 	$id=$_SESSION['idunit'];
-	$sq="select * from tambah where tipe_sumber='Bantuan' and id_unit=$id and status='Sedang Diverifikasi' and final=0";
+	$sq="select * from tambah where tipe_sumber='Mandiri' and id_unit=$id and status='Sedang Diverifikasi' and final=0";
 	$pr=mysqli_query($koneksi,$sq);
 	$r=mysqli_fetch_array($pr); 
 	if(mysqli_num_rows($pr)<=0){
@@ -22,12 +22,11 @@
 	
 
 	// Perintah Insert Tabel
-	
-  		$sql1="insert into tambah_detail (id_tambah, id_barang, status, qty, lokasi, 
-		  nilai_perolehan, dibuat_pada) 
-		  values($x1,$x2,Default,$x6,'$x4',$x5,Default)";
-		  //echo $sql1;
-		mysqli_query($koneksi,$sql1);
+	$sql1="insert into tambah_detail (id_tambah, id_barang, status, qty, lokasi, 
+		nilai_perolehan, dibuat_pada) 
+		values($x1,$x2,Default,$x6,'$x4',$x5,Default)";
+		//echo $sql1;
+	mysqli_query($koneksi,$sql1);
 	
 
 	$sukses=mysqli_affected_rows($koneksi);
@@ -53,5 +52,5 @@
 	
 	
 	// Mengarahkan Ke Halaman Daftar
-	header("location:index.php?p=tambahitem-bantuan-step4");
+	header("location:index.php?p=tambahitem-mandiri-step4");
 ?>

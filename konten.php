@@ -80,7 +80,7 @@
 // Modul yang hanya diaktifkan di awal
 				
 	elseif ($_GET['p']=='tambahitem'&&$tipeakses=='Unit'&&$finalda==1) {
-		include "konten/tambahitem.php";}
+		include "konten/tambahitem.php";}	
 	elseif ($_GET['p']=='tambahitem-bantuan'&&$tipeakses=='Unit'&&$finalda==1) {
 		include "konten/tambahitem_bantuan.php";}
 	elseif ($_GET['p']=='tambahitem-bantuan-rinci'&&$tipeakses=='Unit'&&$finalda==1) {
@@ -93,6 +93,20 @@
 		include "konten/tambahitem_bantuan_step3.php";}
 	elseif ($_GET['p']=='tambahitem-bantuan-step4'&&$tipeakses=='Unit'&&$finalda==1) {
 		include "konten/tambahitem_bantuan_step4.php";}
+	elseif ($_GET['p']=='tambahitem-mandiri'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/tambahitem_mandiri.php";}
+	elseif ($_GET['p']=='tambahitem-mandiri-rinci'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/tambahitem_mandiri_rinci.php";}
+	elseif ($_GET['p']=='tambahitem-mandiri-step1'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/tambahitem_mandiri_step1.php";}
+	elseif ($_GET['p']=='tambahitem-mandiri-step2'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/tambahitem_mandiri_step2.php";}
+	elseif ($_GET['p']=='tambahitem-mandiri-step3'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/tambahitem_mandiri_step3.php";}
+	elseif ($_GET['p']=='tambahitem-mandiri-step4'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/tambahitem_mandiri_step4.php";}
+	elseif ($_GET['p']=='tambahitem'&&$tipeakses=='Yayasan') {
+		include "konten/tambahitem_yayasan.php";}	
 	elseif ($_GET['p']=='hapusitem'&&$tipeakses=='Unit') {
 		include "konten/hapusitem.php";}
 	elseif ($_GET['p']=='hapusitem'&&$tipeakses=='Yayasan') {

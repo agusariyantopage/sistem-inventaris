@@ -17,7 +17,7 @@ $r1=mysqli_fetch_array($perintah1);
 			<ol class="breadcrumb float-sm-right">
 				<li class="breadcrumb-item"><a href="#">Inventaris</a></li>  
 				<li class="breadcrumb-item"><a href="index.php?p=tambahitem">Tambah Inventaris</a></li>            
-				<li class="breadcrumb-item"><a href="index.php?p=tambahitem-bantuan">Mekanisme Bantuan</a></li> 
+				<li class="breadcrumb-item"><a href="index.php?p=tambahitem-mandiri">Mekanisme Mandiri</a></li> 
 				<li class="breadcrumb-item active">Step 3</li>
 			</ol>
 		  </div><!-- /.col -->
@@ -37,7 +37,7 @@ $r1=mysqli_fetch_array($perintah1);
               </div>  	
             		<div class="card-body">
 						<!-- Isian Form -->
-						<form method="post" action="aksi_tambahitem_bantuan_step3.php">
+						<form method="post" action="aksi_tambahitem_mandiri_step3.php">
 							<input name="id" id="id" type="hidden" value="<?= $r1['id_barang']; ?>">
 							<div class="form-group">
 								<label for="idunitkerja">Unit Kerja</label>
@@ -103,18 +103,18 @@ $r1=mysqli_fetch_array($perintah1);
 								<div class="row">
 									<div class="col-12">
 									<label for="merk">Jumlah Barang</label>
-									<input required="" type="number" name="qtybaik" id="qtybaik" placeholder="Masukkan Jumlah Barang ..." class="form-control">
+									<input required="" type="number" name="qtybaik" id="qtybaik" placeholder="Masukkan Jumlah Barang . . ." class="form-control">
 									</div>
 									
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="lokasi">Lokasi Barang</label>
+								<label for="lokasi">Rencana Lokasi Barang</label>
 								<input  type="text" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi . . ." class="form-control">
 							</div>	
 							<div class="form-group">
 								<label for="nilai">Estimasi Harga Perolehan</label>
-								<input  type="number" name="nilai" id="nilai" placeholder="Masukkan estimasi nilai perolehan . . ." class="form-control">
+								<input  type="number" required="" name="nilai" id="nilai" placeholder="Masukkan estimasi nilai perolehan . . ." class="form-control">
 							</div>						
 							<button type="submit" class="btn btn-primary" onclick="return confirm('Pastikan Data Yang Anda Masukkan Sudah Benar,Apakah Anda Yakin Akan Melanjutkan?')">Simpan</button>
 

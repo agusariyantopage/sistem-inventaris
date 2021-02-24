@@ -41,7 +41,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Pengajuan Mandiri</h5>
                         <p class="card-text">Penambahan inventaris dengan mekanisme pembelian mandiri </p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-forward"></i> Lanjutkan</a>
+                        <a href="index.php?p=tambahitem-mandiri" class="btn btn-primary"><i class="fas fa-forward"></i> Lanjutkan</a>
                       </div>
                     </div>
                   </div>

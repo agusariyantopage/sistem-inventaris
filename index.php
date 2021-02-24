@@ -196,15 +196,37 @@ $app = new Flasher;
                   <i class="far fa-circle nav-icon"></i>
                   <p>Approval Data Awal</p>
                 </a>
-              </li>              
+              </li>             
 
+              <li class="nav-item">
+                <a href="index.php?p=tambahitem" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Approval Tambah</p>
+                  <?php   
+// Cek Pengajuan
+$sq_jd="select * from tambah where status ='Sedang Diverifikasi' and final=1";
+$p_jd=mysqli_query($koneksi,$sq_jd);
+$jumlah_delete=mysqli_num_rows($p_jd);
+if($jumlah_delete>=1){
+    echo "<span class='right badge badge-info'>$jumlah_delete</span> ";
+                   
+}
+?>                  
+                </a>
+              </li>                
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Approval Perubahan</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="index.php?p=hapusitem" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Approval Hapus</p>
 <?php   
 // Cek Pengajuan
-$sq_jd="select * from hapus where status ='Sedang Diverifikasi'";
+$sq_jd="select * from hapus where status ='Sedang Diverifikasi' and final=1";
 $p_jd=mysqli_query($koneksi,$sq_jd);
 $jumlah_delete=mysqli_num_rows($p_jd);
 if($jumlah_delete>=1){

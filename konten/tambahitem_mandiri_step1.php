@@ -1,11 +1,11 @@
 <?php
 // Ambil ID Hapus Terakhir
 $id=$_SESSION['idunit'];
-$sq="select * from tambah where tipe_sumber='Bantuan' and id_unit=$id and status='Sedang Diverifikasi' and final=0";
+$sq="select * from tambah where tipe_sumber='Mandiri' and  id_unit=$id and status='Sedang Diverifikasi' and final=0";
 $pr=mysqli_query($koneksi,$sq);
 $r=mysqli_fetch_array($pr); 
 if(mysqli_num_rows($pr)>=1){  
-  include "konten/tambahitem_bantuan_step4.php";
+  include "konten/tambahitem_mandiri_step4.php";
 } else { // Menampilkan Isi Jika Belum Ada Pengajuan Yang Eksis
    
 
@@ -23,7 +23,7 @@ if(mysqli_num_rows($pr)>=1){
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Inventaris</a></li>  
             <li class="breadcrumb-item"><a href="index.php?p=tambahitem">Tambah Inventaris</a></li>            
-            <li class="breadcrumb-item"><a href="index.php?p=tambahitem-bantuan">Mekanisme Bantuan</a></li> 
+            <li class="breadcrumb-item"><a href="index.php?p=tambahitem-mandiri">Mekanisme Bantuan</a></li> 
             <li class="breadcrumb-item active">Step 1</li>
           </ol>
       </div><!-- /.col -->
@@ -43,7 +43,7 @@ if(mysqli_num_rows($pr)>=1){
               </div>    
                 <div class="card-body">
             <!-- Isian Form -->
-            <form method="post" action="aksi_tambahitem_bantuan_step1.php">
+            <form method="post" action="aksi_tambahitem_mandiri_step1.php">
               <input name="p" id="p" type="hidden" value="inventarisgroup-step2">
               <div class="form-group">
                 <label for="idunitkerja">Unit Kerja</label>
@@ -73,24 +73,24 @@ if(mysqli_num_rows($pr)>=1){
                  </select>  
               </div>
               <div class="form-group">
-                <label for="sumber">Sumber Bantuan</label>
-                <input  type="text" name="sumber" id="sumber" placeholder="Masukkan nama sumber bantuan . . ." required class="form-control">
+                <label for="sumber">Supplier</label>
+                <input  type="text" name="sumber" id="sumber" placeholder="Masukkan nama supplier/vendor . . ." required class="form-control">
               </div>              
               <div class="form-group">
-                <label for="sumber">Keterangan Sumber Bantuan</label>
-                <textarea name="ketsumber" id="ketsumber" placeholder="Masukkan keterangan sumber bantuan seperti nomor sk tanggal sk dsb  . . ." required rows="3" class="form-control"></textarea>
+                <label for="sumber">Keterangan</label>
+                <textarea name="ketsumber" id="ketsumber" placeholder="Masukkan keterangan tambahan  . . ." required rows="3" class="form-control"></textarea>
               </div>              
               <div class="form-group">
                 <label for="tglterima">Tanggal Terima Barang</label>
-                <input  type="date" name="tglterima" id="tglterima" placeholder="Masukkan tanggal terima bantuan . . ." required class="form-control">
+                <input  type="date" name="tglterima" id="tglterima" placeholder="Masukkan tanggal terima barang . . ." required class="form-control">
               </div>  
               <div class="form-group">
                 <label for="pengaju">Di Ajukan Oleh</label>
-                <input  type="text" name="pengaju" id="pengaju" placeholder="Masukkan nama pengaju penghapusan . . ." required class="form-control">
+                <input  type="text" name="pengaju" id="pengaju" placeholder="Masukkan nama pengaju pembelian . . ." required class="form-control">
               </div>
               <div class="form-group">
                 <label for="penanggung">Penanggung Jawab</label>
-                <input  type="text" name="penanggung" id="penanggung" placeholder="Masukkan nama penanggung jawab penghapusan . . ." required="" class="form-control">
+                <input  type="text" name="penanggung" id="penanggung" placeholder="Masukkan nama penanggung jawab pembelian . . ." required="" class="form-control">
               </div>            
               <button type="submit" class="btn btn-primary">Simpan</button>
 

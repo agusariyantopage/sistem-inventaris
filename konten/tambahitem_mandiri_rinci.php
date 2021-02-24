@@ -19,7 +19,7 @@
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Inventaris</a></li>  
             <li class="breadcrumb-item"><a href="index.php?p=tambahitem">Tambah Inventaris</a></li>            
-            <li class="breadcrumb-item"><a href="index.php?p=tambahitem-bantuan">Mekanisme Bantuan</a></li> 
+            <li class="breadcrumb-item"><a href="index.php?p=tambahitem-mandiri">Mekanisme Mandiri</a></li> 
             <li class="breadcrumb-item active">Rincian Pengajuan</li>
           </ol>
           </div><!-- /.col -->
@@ -84,7 +84,7 @@
                  </div>
                 <div class="row">
                   <div class="col-3">
-                    <label>Jenis Bantuan</label> 
+                    <label>Supplier / Vendor</label> 
                   </div>
                   <div class="col-3">                    
                     <?= $r1['jenis_tipe_sumber']; ?>
@@ -140,7 +140,7 @@
                   
                 </table><br>
                 
-                <a href="index.php?p=tambahitem-bantuan">
+                <a href="index.php?p=tambahitem-mandiri">
                   <button class="btn btn-success">Kembali</button>
                 </a>  
               </div>

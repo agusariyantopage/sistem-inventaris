@@ -20,19 +20,22 @@
 session_start();
 require '../koneksi.php';
 
-if($_SESSION['level']==1) {
-    $sql="create VIEW view_data_rinci as select barang_detail.*,deskripsi,spesifikasi,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja";
+if($_SESSION['jenisakses']=='Yayasan') {
+	$view_name='view_data_rinci_00';
+    $sql="create VIEW ".$view_name." as select barang_detail.*,deskripsi,spesifikasi,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja";
   } else {
     $id_unit= $_SESSION['idunit'];
+	$view_name='view_data_rinci_'.$id_unit;
     //$sql="select barang_detail.*,barang.*,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja and barang_detail.id_unitkerja=$id_unit";
-    $sql="create VIEW view_data_rinci as select barang_detail.*,deskripsi,spesifikasi,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja and barang_detail.id_unitkerja=$id_unit";
+    $sql="create VIEW ".$view_name." as select barang_detail.*,deskripsi,spesifikasi,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja and barang_detail.id_unitkerja=$id_unit";
     
   }
-  mysqli_query($koneksi,'drop view view_data_rinci');
+  $sql1='drop view '.$view_name;
+  mysqli_query($koneksi,$sql1);
   mysqli_query($koneksi,$sql);
 
 // DB table to use
-$table = 'view_data_rinci';
+$table = $view_name;
 
 // Table's primary key
 $primaryKey = 'id_barang_detail';
@@ -65,10 +68,10 @@ $columns = array(
 
 // SQL server connection information
 $sql_details = array(
-	'user' => 'root',
-	'pass' => '',
-	'db'   => 'inventaris_ytsj',
-	'host' => '127.0.0.1'
+	'user' => DB_USER,
+	'pass' => DB_PASS,
+	'db'   => DB_NAME,
+	'host' => DB_HOST
 );
 
 

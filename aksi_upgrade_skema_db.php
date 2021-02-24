@@ -35,7 +35,7 @@
 		id_tambah int(10) NOT NULL,
 		id_barang int(11) NOT NULL,
 		status varchar(20) NOT NULL DEFAULT 'Pending',
-		kondisi varchar(100) NOT NULL,
+		qty int(11) NOT NULL,
 		lokasi varchar(100) NOT NULL,
 		nilai_perolehan double(17,2) NOT NULL,
 		dibuat_pada datetime NOT NULL DEFAULT current_timestamp()

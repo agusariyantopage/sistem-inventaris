@@ -11,7 +11,7 @@
 	$now = date('Y-m-d H:i:s');
 
 	$x1	=$_POST['idunitkerja'];
-	$x2	='Bantuan';
+	$x2	='Mandiri';
 	$x3	=$_POST['sumber'];
 	$x4	=$_POST['ketsumber'];
 	$x5	='';
@@ -37,12 +37,12 @@
 
 	if($sukses>=1){
 		$pesan='Sukses';
-		$aksi='Menambahkan Data Pengajuan Penambahan Mekanisme Bantuan';
+		$aksi='Menambahkan Data Pengajuan Penambahan Mekanisme Mandiri';
 		$type='success';
 	}
 	else {
 		$pesan='Gagal';
-		$aksi='Menambahkan Data Pengajuan Penambahan Mekanisme Bantuan';
+		$aksi='Menambahkan Data Pengajuan Penambahan Mekanisme Mandiri';
 		$type='danger';
 	}
 	
@@ -53,5 +53,5 @@
 	]; 
 
 	// Mengarahkan Ke Halaman Daftar
-	header("location:index.php?p=tambahitem-bantuan-step2");
+	header("location:index.php?p=tambahitem-mandiri-step2");
 ?>
