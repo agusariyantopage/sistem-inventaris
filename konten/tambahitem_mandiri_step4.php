@@ -42,10 +42,7 @@
               </div> 
               <!-- /.card-header -->
               <div class="card-body">
-                <?php                   
-                  echo "<br>";
-                  Flasher::Message();
-                 ?>
+                <div class="flash-data" data-flashdata="<?= Flasher::message() ?>"></div>                
              
                 <table id="example2" class="table table-bordered table-striped">
                   <thead>
@@ -121,4 +118,3 @@
 <?php
   }
 ?>
-    

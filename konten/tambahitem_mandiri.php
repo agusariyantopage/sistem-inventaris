@@ -32,6 +32,7 @@
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Daftar Pengajuan</h3>
+                <div class="flash-data" data-flashdata="<?= Flasher::message() ?>"></div> 
               </div>
               
               <!-- /.card-header -->

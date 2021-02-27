@@ -18,6 +18,7 @@
 		tgl_setuju date NOT NULL,
 		tgl_terima_barang date NOT NULL,
 		dibuat_pada datetime NOT NULL DEFAULT current_timestamp(),
+		alasan_ditolak text NOT NULL DEFAULT NULL,
 		update_terakhir datetime NOT NULL DEFAULT current_timestamp(),
 		final int(1) NOT NULL DEFAULT 0
 	  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
@@ -47,6 +48,8 @@
 	mysqli_query($koneksi,$sql04);
 	mysqli_query($koneksi,$sql05);
 	mysqli_query($koneksi,$sql06);
+	$sql07="ALTER TABLE barang_detail ADD id_tambah INT(11) NOT NULL DEFAULT '0' AFTER jam_input, ADD nilai_perolehan INT(15) NOT NULL DEFAULT '0' AFTER id_tambah, ADD perubahan_terakhir DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER nilai_perolehan";
+	mysqli_query($koneksi,$sql07);
 
 	
 ?>

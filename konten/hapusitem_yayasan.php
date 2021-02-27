@@ -102,8 +102,7 @@
                     
                   </tr>
                   </tfoot>
-                </table><br>
-               <i>Note : Silahkan Selesaikan Pengajuan Terakhir , Untuk dapat mengajukan pengajuan baru</i>
+                </table>
                  
               </div>
               <!-- /.card-body -->

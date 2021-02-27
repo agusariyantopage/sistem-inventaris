@@ -483,6 +483,13 @@ if($jumlah_delete>=1){
 <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
+
+<!-- Plugin Sweet Alert -->
+<script src="dist/js/sweetalert2.all.min.js"></script>
+<script src="dist/js/script-alert.js"></script>
+
+<!-- <script src="dist/js/sweetalert2.all.min.js"></script>-->
+
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -517,6 +524,7 @@ if($jumlah_delete>=1){
       "autoWidth": false,
       "responsive": true,
     });
+    
     //Initialize Select2 Elements
     $('.select2').select2()
   });

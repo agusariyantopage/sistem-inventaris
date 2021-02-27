@@ -107,6 +107,8 @@
 		include "konten/tambahitem_mandiri_step4.php";}
 	elseif ($_GET['p']=='tambahitem'&&$tipeakses=='Yayasan') {
 		include "konten/tambahitem_yayasan.php";}	
+	elseif ($_GET['p']=='tambahitem-rinci'&&$tipeakses=='Yayasan') {
+		include "konten/tambahitem_yayasan_rinci.php";}
 	elseif ($_GET['p']=='hapusitem'&&$tipeakses=='Unit') {
 		include "konten/hapusitem.php";}
 	elseif ($_GET['p']=='hapusitem'&&$tipeakses=='Yayasan') {

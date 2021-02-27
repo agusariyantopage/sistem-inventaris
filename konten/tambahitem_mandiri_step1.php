@@ -23,7 +23,7 @@ if(mysqli_num_rows($pr)>=1){
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Inventaris</a></li>  
             <li class="breadcrumb-item"><a href="index.php?p=tambahitem">Tambah Inventaris</a></li>            
-            <li class="breadcrumb-item"><a href="index.php?p=tambahitem-mandiri">Mekanisme Bantuan</a></li> 
+            <li class="breadcrumb-item"><a href="index.php?p=tambahitem-mandiri">Mekanisme Mandiri</a></li> 
             <li class="breadcrumb-item active">Step 1</li>
           </ol>
       </div><!-- /.col -->
@@ -41,6 +41,7 @@ if(mysqli_num_rows($pr)>=1){
               <div class="card-header">
                 <h3 class="card-title">Lengkapi Formulir Dibawah Ini</h3>
               </div>    
+              
                 <div class="card-body">
             <!-- Isian Form -->
             <form method="post" action="aksi_tambahitem_mandiri_step1.php">

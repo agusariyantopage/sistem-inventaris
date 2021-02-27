@@ -15,11 +15,11 @@ class Flasher{
     public static function Message(){
         if( isset($_SESSION['msg']) )
         {
-
-            echo '<span class="badge badge-'. $_SESSION['msg']['type'] .'">
-                    <strong>'. $_SESSION['msg']['pesan'] .'</strong> '. $_SESSION['msg']['aksi'] .'
+            echo $_SESSION['msg']['type'];    
+           // echo '<span class="badge badge-'. $_SESSION['msg']['type'] .'">
+             //       <strong>'. $_SESSION['msg']['pesan'] .'</strong> '. $_SESSION['msg']['aksi'] .'
                     
-                  </span>';
+               //   </span>';
 
             unset($_SESSION['msg']);
         }

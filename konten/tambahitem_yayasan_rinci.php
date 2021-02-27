@@ -5,7 +5,7 @@
   $sql1="select tambah.*,nama_panjang from unit_kerja,tambah where unit_kerja.id_unit=tambah.id_unit and id_tambah=$id_tambah";
   $perintah1=mysqli_query($koneksi,$sql1);
   $r1=mysqli_fetch_array($perintah1);
-  
+  $status=$r1['status'];
 
 ?>
 <!-- Content Header (Page header) -->
@@ -18,8 +18,7 @@
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Inventaris</a></li>  
-            <li class="breadcrumb-item"><a href="index.php?p=tambahitem">Tambah Inventaris</a></li>            
-            <li class="breadcrumb-item"><a href="index.php?p=tambahitem-mandiri">Mekanisme Mandiri</a></li> 
+            <li class="breadcrumb-item"><a href="index.php?p=tambahitem">Approval Tambah</a></li>                       
             <li class="breadcrumb-item active">Rincian Pengajuan</li>
           </ol>
           </div><!-- /.col -->
@@ -84,13 +83,30 @@
                  </div>
                 <div class="row">
                   <div class="col-md-3">
-                    <label>Supplier / Vendor</label> 
+                    <label>
+<?php
+                  if($r1['tipe_sumber']=='Bantuan'){
+                    echo "Jenis Bantuan";
+                  } else {
+                    echo "Supplier / Vendor";
+                  }
+?>
+                   
+                    </label> 
                   </div>
                   <div class="col-md-3">                    
                     <?= $r1['jenis_tipe_sumber']; ?>
                   </div>
                   <div class="col-md-3">
-                    <label>Keterangan Bantuan</label>  
+                    <label>
+<?php
+                  if($r1['tipe_sumber']=='Bantuan'){
+                    echo "Keterangan Bantuan";
+                  } else {
+                    echo "Keterangan Tambahan";
+                  }
+?>                    
+                    </label>  
                   </div>
                   <div class="col-md-3">                    
                     <?= $r1['keterangan_tipe_sumber']; ?>
@@ -139,10 +155,41 @@
                   </tbody>
                   
                 </table><br>
-                
-                <a href="index.php?p=tambahitem-mandiri">
-                  <button class="btn btn-success">Kembali</button>
-                </a>  
+                <?php 
+                    if($status=='Ditolak'){
+                      echo "<form action='#'>                          
+                          <div class='form-group'>
+                            <label for='alasan'>Alasan Penolakan</label>
+                            <textarea readonly='' class='form-control' name='alasan' rows='3'>$r1[alasan_ditolak]</textarea>
+                          </div>
+                        </form>";
+
+                    }
+                    if(empty($_GET['act'])){
+                      echo "<a href='index.php?p=tambahitem'>
+                        <button class='btn btn-success'>Kembali</button>
+                      </a>";
+                      } elseif($_GET['act']=='hapus'&&$status=='Sedang Diverifikasi'){
+                        echo "
+                        <form action='aksi_tambahitem_tolak.php' method='post'>
+                          <input type='hidden' name='id' value=$id_tambah>
+                          <div class='form-group'>
+                            <label for='alasan'>Alasan Penolakan</label>
+                            <textarea required='' class='form-control' name='alasan' rows='3'></textarea>
+                          </div>
+                          <button class='btn btn-danger' onclick=\"return confirm('Apakah Anda Yakin Akan Menolak Pengajuan Ini?')\">Tolak</button>
+                        </form>";
+                      } elseif($_GET['act']=='approve'&&($status!='Disetujui'&&$status!='Ditolak')){
+                        echo "<form action='aksi_tambahitem_approve.php' method='post'>
+                          <input type='hidden' name='id' value=$id_tambah>
+                          <button type='submit' id='submitForm' class='btn btn-info'>Setujui</button>
+                        </a>";
+                      } else {
+                        echo "<a href='index.php?p=tambahitem'>
+                              <button class='btn btn-success'>Kembali</button>
+                              </a>";
+                    }
+               ?> 
               </div>
               <!-- /.card-body -->
             </div>
@@ -155,5 +202,26 @@
       </div>
       <!-- /.container-fluid -->
     </section>
-            <!-- Main content -->
+            <!-- Main content -->            
+<script>
+   //$('#submitForm').on('click',function(e){ 
+    document.querySelector("#submitForm").addEventListener('click', function(e){       
+      e.preventDefault();
+      var form = $(this).parents('form');
+      Swal.fire({
+            title: 'Konfirmasi Approval?',
+            text: "Pastikan data sudah benar karena proses tidak akan bisa di batalkan , ketika anda menyetujui pengajuan ini, maka inventaris akan ditambahkan sesuai dengan daftar barang yang diajukan",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Setujui!'            
+        }).then((result) => {
+            if (result.value) {
+                form.submit();
+            }
+        });
+    });
+</script>            
+            
     

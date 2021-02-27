@@ -33,7 +33,7 @@
                 </a>
                 <a href="pdf/examples/print-barcode2d.php" target="blank">
                   <button class="btn btn-success mb-2">Cetak QR-Code</button>
-                </a>
+                </a>                
                 <table id="inventaris-rinci"  class="table table-bordered table-striped">
                   <thead>
                   <tr>

@@ -22,6 +22,7 @@
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Daftar Pengajuan</h3>
+                <div class="flash-data" data-flashdata="<?= Flasher::message() ?>"></div>
               </div>
               
               <!-- /.card-header -->
@@ -60,22 +61,24 @@
                             }
                            echo $r['status']; 
                            echo "</span>";
-                           ?>                          
+                           ?> 
+                                       
                         </td> 
                         <td><?= $r['tgl_aju']; ?></td> 
                         <td><?= $r['tipe_sumber']; ?></td>
                         <td><?= $r['update_terakhir']; ?></td> 
                         <td>
-                        <a href="index.php?p=hapusitem-aksi&id=<?= $r['id_hapus']; ?>"><span class="fas fa-info-circle"></span></a>&nbsp;
+                        <a href="index.php?p=tambahitem-rinci&id=<?= $r['id_tambah']; ?>"><span class="fas fa-info-circle"></span></a>&nbsp;
   <?php 
     if($r['status']=='Sedang Diverifikasi'){
  ?>
-  <a href="index.php?p=hapusitem-aksi&id=<?= $r['id_hapus']; ?>&act=hapus"><span class="fas fa-trash"></span></a>&nbsp;
+  <a href="index.php?p=tambahitem-rinci&id=<?= $r['id_tambah']; ?>&act=hapus"><span class="fas fa-trash"></span></a>&nbsp;
   <?php 
     }
     if($r['status']=='Sedang Diverifikasi'){
  ?>
-  <a href="index.php?p=hapusitem-aksi&id=<?= $r['id_hapus']; ?>&act=approve"><span class="fas fa-check-circle"></span></a>&nbsp;
+  <a href="index.php?p=tambahitem-rinci&id=<?= $r['id_tambah']; ?>&act=approve"><span class="fas fa-check-circle"></span></a>&nbsp;
+ 
  <?php 
   }
   ?>
@@ -114,4 +117,4 @@
       <!-- /.container-fluid -->
     </section>
             <!-- Main content -->
-    
+ 
