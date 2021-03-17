@@ -22,6 +22,7 @@
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Daftar Pengajuan Hapus Inventaris</h3>
+                <div class="flash-data" data-flashdata="<?= Flasher::message() ?>"></div>
               </div> 
               <!-- /.card-header -->
               <div class="card-body">                

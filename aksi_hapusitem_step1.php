@@ -6,6 +6,7 @@
 	$x2	=$_POST['alasan'];
 	$x3	=$_POST['pengaju'];
 	$x4	=$_POST['penanggung'];
+	$x5	=$_POST['tindaklanjut'];
 	date_default_timezone_set('Asia/Singapore');
 	$tanggal=date('Y-m-d');
 	$jam=date('H:i:s');
@@ -15,7 +16,8 @@
 	
 
 	
-	$sql1="insert into hapus(id_unit,alasan,pengaju,penanggung,tgl_aju,update_terakhir) values($x1,'$x2','$x3','$x4','$tanggal','$now')";
+	$sql1="insert into hapus(id_unit,alasan,pengaju,penanggung,tgl_aju,update_terakhir,tindak_lanjut)
+	 values($x1,'$x2','$x3','$x4','$tanggal','$now','$x5')";
 	mysqli_query($koneksi,$sql1);
 	
 

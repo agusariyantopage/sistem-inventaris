@@ -31,6 +31,7 @@
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Daftar Pengajuan Hapus Inventaris</h3>
+                <div class="flash-data" data-flashdata="<?= Flasher::message() ?>"></div>
               </div> 
               <!-- /.card-header -->
               <div class="card-body">
@@ -66,10 +67,10 @@
                       //$sql="select barang.*,kategori,subkategori from barang,kategori,subkategori where barang.id_subkategori=subkategori.id_subkategori and kategori.id_kategori=subkategori.id_kategori";
                       // Akses Yayasan / Unit Kerja
                       if($_SESSION['level']==1) {
-                        $sql="select hapus.*,nama_panjang from hapus,unit_kerja where hapus.id_unit=unit_kerja.id_unit";
+                        $sql="select hapus.*,nama_panjang from hapus,unit_kerja where hapus.id_unit=unit_kerja.id_unit and final=1";
                       } else {
                         $id_unit= $_SESSION['idunit'];
-                        $sql="select hapus.*,nama_panjang from hapus,unit_kerja where hapus.id_unit=unit_kerja.id_unit and hapus.id_unit=$id_unit";
+                        $sql="select hapus.*,nama_panjang from hapus,unit_kerja where hapus.id_unit=unit_kerja.id_unit and hapus.id_unit=$id_unit and final=1";
                         //echo $sql;
                       }
                       // -- Akses Yayasan / Unit Kerja 

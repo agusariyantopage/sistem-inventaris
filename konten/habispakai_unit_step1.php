@@ -1,4 +1,14 @@
 <?php
+// Ambil ID Hapus Terakhir
+$id=$_SESSION['idunit'];
+$sq="select * from habispakai where id_unit=$id and final=0";
+$pr=mysqli_query($koneksi,$sq);
+$r=mysqli_fetch_array($pr); 
+if(mysqli_num_rows($pr)>=1){  
+  include "konten/tambahitem_mandiri_step4.php";
+} else { // Menampilkan Isi Jika Belum Ada Pengajuan Yang Eksis
+   
+
 ?>
 
 
@@ -7,14 +17,14 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Pengajuan Penghapusan Inventaris Baru</h1>
+        <h1 class="m-0">Pengajuan Penambahan Inventaris Baru</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Inventaris</a></li>
-          <li class="breadcrumb-item"><a href="index.php?p=hapusitem">Hapus Inventaris</a></li>
-          <li class="breadcrumb-item active">Hapus Inventaris Step 1</li>
-        </ol>
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Barang Habis Pakai</a></li>                          
+            <li class="breadcrumb-item"><a href="index.php?p=habispakai">Pelaporan</a></li> 
+            <li class="breadcrumb-item active">Step 1</li>
+          </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
   </div><!-- /.container-fluid -->
@@ -28,11 +38,12 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Lengkapi Form </h3>
+                <h3 class="card-title">Lengkapi Formulir Dibawah Ini</h3>
               </div>    
+              
                 <div class="card-body">
             <!-- Isian Form -->
-            <form method="post" action="aksi_hapusitem_step1.php">
+            <form method="post" action="aksi_habispakai_step1.php">
               <input name="p" id="p" type="hidden" value="inventarisgroup-step2">
               <div class="form-group">
                 <label for="idunitkerja">Unit Kerja</label>
@@ -60,22 +71,26 @@
                 }
                  ?>
                  </select>  
+              </div>
+              <div class="form-group">
+                <label for="sumber">Sumber Pendanaan</label>
+                <input  type="text" name="sumber" id="sumber" placeholder="Masukkan sumber pengadaan seperti Mandiri/Bantuan/Sponsorship/DST . . ." required class="form-control">
               </div>              
               <div class="form-group">
-                <label for="alasan">Alasan Penghapusan</label>
-                <textarea class="form-control" id="alasan" name="alasan" required="" placeholder="Lengkapi Alasan Penghapusan Inventaris ..." rows="3"></textarea>
-              </div>  
+                <label for="sumber">Keterangan</label>
+                <textarea name="ketsumber" id="ketsumber" placeholder="Masukkan keterangan tambahan seperti nama supplier / nomor sk bantuan / dst  . . ." required rows="3" class="form-control"></textarea>
+              </div>              
               <div class="form-group">
-                <label for="tindaklanjut">Tindak Lanjut</label>
-                <textarea class="form-control" id="tindaklanjut" name="tindaklanjut" required="" placeholder="Lengkapi Tindak Lanjut Terahadap Inventaris Seperti : Dijual , Dibuang , Disumbangkan DLL ..." rows="3"></textarea>
+                <label for="tglterima">Tanggal Terima Barang</label>
+                <input  type="date" name="tglterima" id="tglterima" placeholder="Masukkan tanggal terima barang . . ." required class="form-control">
               </div>  
               <div class="form-group">
                 <label for="pengaju">Di Ajukan Oleh</label>
-                <input  type="text" name="pengaju" id="pengaju" placeholder="Masukkan nama pengaju penghapusan . . ." required class="form-control">
+                <input  type="text" name="pengaju" id="pengaju" placeholder="Masukkan nama pengaju pembelian . . ." required class="form-control">
               </div>
               <div class="form-group">
                 <label for="penanggung">Penanggung Jawab</label>
-                <input  type="text" name="penanggung" id="penanggung" placeholder="Masukkan nama penanggung jawab penghapusan . . ." required="" class="form-control">
+                <input  type="text" name="penanggung" id="penanggung" placeholder="Masukkan nama penanggung jawab pembelian . . ." required="" class="form-control">
               </div>            
               <button type="submit" class="btn btn-primary">Simpan</button>
 
@@ -90,3 +105,6 @@
     <!-- /.container-fluid -->
 </section>
 <!-- Main content -->
+<?php
+}
+?>

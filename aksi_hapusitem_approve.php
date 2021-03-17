@@ -9,10 +9,27 @@
 	$now = date('Y-m-d H:i:s');
 
 	// Mengambil Variabel Dari Form
-	$id=$_GET['id'];
+	$id=$_POST['id'];
 	
 	$sql1="update hapus set status ='Disetujui',tgl_setuju='$tanggal',update_terakhir='$now' where id_hapus=$id";
 	mysqli_query($koneksi,$sql1);
+	$sukses=mysqli_affected_rows($koneksi);
+	if($sukses>=1){
+		$pesan='Sukses';
+		$aksi='Menambahkan Data';
+		$type='success';
+	}
+	else {
+		$pesan='Gagal';
+		$aksi='Menambahkan Data';
+		$type='danger';
+	}
+
+	$_SESSION['msg'] = [
+		'pesan' => $pesan,
+		'aksi'  => $aksi,
+		'type'  => $type
+	];
 
 	$sql2="update hapus_detail set status ='Disetujui' where id_hapus=$id";
 	mysqli_query($koneksi,$sql2);

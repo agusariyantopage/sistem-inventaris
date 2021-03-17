@@ -2,7 +2,7 @@
 // Ambil ID Hapus Terakhir
   $id_hapus=$_GET['id'];
   
-  $sql1="select * from hapus where id_hapus=$id_hapus";
+  $sql1="select hapus.*,nama_panjang from hapus,unit_kerja where hapus.id_unit=unit_kerja.id_unit and id_hapus=$id_hapus";
   $perintah1=mysqli_query($koneksi,$sql1);
   $r1=mysqli_fetch_array($perintah1);
   $status=$r1['status'];
@@ -47,53 +47,59 @@
 
               <div class="card-body">
                 <div class="row">
-                  <div class="col-3">
+                  <div class="col-md-3">
                     <label>Unit Pengaju</label> 
                   </div>
-                  <div class="col-3">                    
-                    <?= $r1['id_unit']; ?>
+                  <div class="col-md-3">                    
+                    <?= $r1['nama_panjang']; ?>
                   </div>
-                  <div class="col-3">
+                  <div class="col-md-3">
                     <label>Status Pengajuan</label>  
                   </div>
-                  <div class="col-3">                    
+                  <div class="col-md-3">                    
                     <?= $r1['status']; ?>
                   </div>                  
                 </div>
                 <div class="row">
-                  <div class="col-3">
+                  <div class="col-md-3">
                     <label>Tanggal Diajukan</label> 
                   </div>
-                  <div class="col-3">                    
+                  <div class="col-md-3">                    
                     <?= $r1['tgl_aju']; ?>
                   </div>
-                  <div class="col-3">
+                  <div class="col-md-3">
                     <label>Tanggal Disetujui</label>  
                   </div>
-                  <div class="col-3">                    
+                  <div class="col-md-3">                    
                     <?= $r1['tgl_setuju']; ?>
                   </div>
                  </div>
                 <div class="row">
-                  <div class="col-3">
+                  <div class="col-md-3">
                     <label>Nama Pengaju</label> 
                   </div>
-                  <div class="col-3">                    
+                  <div class="col-md-3">                    
                     <?= $r1['pengaju']; ?>
                   </div>
-                  <div class="col-3">
+                  <div class="col-md-3">
                     <label>Nama Penanggung Jawab</label>  
                   </div>
-                  <div class="col-3">                    
+                  <div class="col-md-3">                    
                     <?= $r1['penanggung']; ?>
                   </div>
                  </div>
                  <div class="row">
-                  <div class="col-3">
+                  <div class="col-md-3">
                     <label>Alasan Pengajuan Penghapusan</label> 
                   </div>
-                  <div class="col-9">                    
+                  <div class="col-md-3">                    
                     <?= $r1['alasan']; ?>
+                  </div>
+                  <div class="col-md-3">
+                    <label>Tindak Lanjut Penghapusan</label> 
+                  </div>
+                  <div class="col-md-3">                    
+                    <?= $r1['tindak_lanjut']; ?>
                   </div>
                  </div>
                 
@@ -101,7 +107,7 @@
                 <table id="input-group" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>ID </th>
+                    <th>ID</th>
                     <th>Deskripsi</th>
                     <th>Spesifikasi</th> 
                     <th>Kondisi</th>                                       
@@ -120,10 +126,7 @@
                       while ($r=mysqli_fetch_array($perintah)) {     
                     ?>              
                       <tr>
-                        <td>
-                          <?= $r['id_barang_detail']; ?>
-                            
-                          </td>                        
+                        <td><?= $r['id_barang_detail']; ?></td>                        
                         <td><?= $r['deskripsi']; ?></td>                         
                         <td><?= $r['spesifikasi']; ?></td> 
                         <td><?= $r['kondisi']; ?></td> 
@@ -140,22 +143,40 @@
                   
                 </table><br>
 <?php 
-                if(empty($_GET['act'])){
+             
+              // New
+              if($status=='Ditolak'){
+                echo "<form action='#'>                          
+                    <div class='form-group'>
+                      <label for='alasan'>Alasan Penolakan</label>
+                      <textarea readonly='' class='form-control' name='alasan' rows='3'>$r1[alasan_ditolak]</textarea>
+                    </div>
+                  </form>";
+
+              }
+              if(empty($_GET['act'])){
                 echo "<a href='index.php?p=hapusitem'>
                   <button class='btn btn-success'>Kembali</button>
                 </a>";
-              } elseif($_GET['act']=='hapus'){
-                echo "<a href='aksi_hapusitem_tolak.php?id=$id_hapus' onclick=\"return confirm('Apakah Anda Yakin Akan Menolak Pengajuan Ini?')\">
-                  <button class='btn btn-danger'>Tolak</button>
-                </a>";
-              } elseif($_GET['act']=='approve'&&$status!='Disetujui'){
-                echo "<a href='aksi_hapusitem_approve.php?id=$id_hapus' onclick=\"return confirm('Apakah Anda Yakin Akan Menyetujui Pengajuan Ini?')\" >
-                  <button class='btn btn-info'>Setujui</button>
-                </a>";
-              } else {
-                echo "<a href='index.php?p=hapusitem'>
-                  <button class='btn btn-success'>Kembali</button>
-                </a>";
+                } elseif($_GET['act']=='hapus'&&$status=='Sedang Diverifikasi'){
+                  echo "
+                  <form action='aksi_hapusitem_tolak.php' method='post'>
+                    <input type='hidden' name='id' value=$id_hapus>
+                    <div class='form-group'>
+                      <label for='alasan'>Alasan Penolakan</label>
+                      <textarea required='' class='form-control' name='alasan' rows='3'></textarea>
+                    </div>
+                    <button class='btn btn-danger' type='submit' onclick=\"return confirm('Apakah Anda Yakin Akan Menolak Pengajuan Ini?')\">Tolak</button>
+                  </form>";
+                } elseif($_GET['act']=='approve'&&($status!='Disetujui'&&$status!='Ditolak')){
+                  echo "<form action='aksi_hapusitem_approve.php' method='post'>
+                    <input type='hidden' name='id' value=$id_hapus>
+                    <button type='submit' id='submitForm' class='btn btn-info'>Setujui</button>
+                    </form>";
+                } else {
+                  echo "<a href='index.php?p=hapusitem'>
+                        <button class='btn btn-success'>Kembali</button>
+                        </a>";
               }
               
     
@@ -174,4 +195,24 @@
       <!-- /.container-fluid -->
     </section>
             <!-- Main content -->
+<script>
+   //$('#submitForm').on('click',function(e){ 
+    document.querySelector("#submitForm").addEventListener('click', function(e){       
+      e.preventDefault();
+      var form = $(this).parents('form');
+      Swal.fire({
+            title: 'Konfirmasi Approval?',
+            text: "Pastikan data sudah benar karena proses tidak akan bisa di batalkan , ketika anda menyetujui pengajuan ini, maka inventaris akan dihapus secara permanen sesuai dengan daftar barang yang diajukan",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Setujui!'            
+        }).then((result) => {
+            if (result.value) {
+                form.submit();
+            }
+        });
+    });
+</script>            
     

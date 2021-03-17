@@ -314,7 +314,7 @@ if($jumlah_delete>=1){
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="index.php?p=mutasiitem" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mutasi Inventaris</p>
                   <span class="right badge badge-danger">New</span>
@@ -347,18 +347,13 @@ if($jumlah_delete>=1){
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="index.php?p=habispakai" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pengajuan</p>
                 </a>
               </li>              
 
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pelaporan</p>
-                </a>
-              </li> 
+              
                            
             </ul>
           </li>

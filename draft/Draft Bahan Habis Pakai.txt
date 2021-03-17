@@ -1,0 +1,10 @@
+Cara Input Bahan Habis Pakai
+
+Klik
+
+Diatas Ada Tombol Tambah
+Menampilkan Daftar Pelaporan Bahan Habis Pakai
+Ketika Tombol Tambah Di Klik
+Then Muncul Form Isian 
+Point Penting Di Jumlah Jenis Item (Max 20 Jenis Item)
+Jumlah Jenis Item Akan Menenutkan Berapa Banyak Baris Yang Muncul Pada Form Isian Barang Yang Dibeli

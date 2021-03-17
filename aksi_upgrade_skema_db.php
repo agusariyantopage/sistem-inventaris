@@ -50,6 +50,49 @@
 	mysqli_query($koneksi,$sql06);
 	$sql07="ALTER TABLE barang_detail ADD id_tambah INT(11) NOT NULL DEFAULT '0' AFTER jam_input, ADD nilai_perolehan INT(15) NOT NULL DEFAULT '0' AFTER id_tambah, ADD perubahan_terakhir DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER nilai_perolehan";
 	mysqli_query($koneksi,$sql07);
+	$sql08="ALTER TABLE hapus ADD tindak_lanjut TEXT NOT NULL DEFAULT '-' AFTER alasan";
+	mysqli_query($koneksi,$sql08);
+	$sql09="ALTER TABLE hapus ADD alasan_ditolak TEXT NULL DEFAULT NULL AFTER tgl_setuju";
+	mysqli_query($koneksi,$sql09);
+	$sql10="CREATE TABLE barang_detail_log ( id_barang_detail_log INT(10) NOT NULL AUTO_INCREMENT ,  id_barang_detail INT(10) NOT NULL ,  id_barang INT(10) NOT NULL ,  perubahan TEXT NOT NULL DEFAULT '-- Tidak Ada Perubahan --' ,  catatan TEXT NOT NULL DEFAULT '-- Tidak Ada Catatan --' ,  tanggal DATE NOT NULL DEFAULT CURRENT_TIMESTAMP ,  waktu_input TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,  id_unit INT(10) NOT NULL ,    PRIMARY KEY  (id_barang_detail_log)) ENGINE = InnoDB";
+	mysqli_query($koneksi,$sql10);
+	$sql11="CREATE TABLE habispakai (
+		id_habispakai int(11) NOT NULL,
+		id_unit int(10) NOT NULL,
+		tipe_sumber varchar(150) NOT NULL,
+		keterangan_tipe_sumber varchar(200) NOT NULL,
+		pengaju varchar(100) NOT NULL,
+		penanggung varchar(100) NOT NULL,
+		status varchar(100) NOT NULL DEFAULT 'Sedang Diverifikasi',
+		tgl_setuju_hapus date NOT NULL,
+		tgl_terima_barang date NOT NULL,
+		dibuat_pada datetime NOT NULL DEFAULT current_timestamp(),
+		alasan_dihapus text DEFAULT NULL,
+		update_terakhir datetime NOT NULL DEFAULT current_timestamp(),
+		final int(1) NOT NULL DEFAULT 0
+	  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+	";
+	mysqli_query($koneksi,$sql11);
+	$sql12="ALTER TABLE habispakai ADD PRIMARY KEY (id_habispakai)";
+	mysqli_query($koneksi,$sql12);
+	$sql13="ALTER TABLE habispakai MODIFY id_habispakai int(11) NOT NULL AUTO_INCREMENT";
+	mysqli_query($koneksi,$sql13);
+	
+	// Set Tambah Tabel habispakai_detail
+	$sql14="CREATE TABLE habispakai_detail (
+		id_habispakai_detail int(10) NOT NULL,
+		id_habispakai int(10) NOT NULL,
+		deskripsi varchar(200) NOT NULL,
+		satuan varchar(200) NOT NULL,
+		harga int(17) NOT NULL,
+		jumlah int(17) NOT NULL
+	  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4	
+	";
+	$sql15="ALTER TABLE habispakai_detail ADD PRIMARY KEY (id_habispakai_detail)";
+	$sql16="ALTER TABLE habispakai_detail MODIFY id_habispakai_detail int(10) NOT NULL AUTO_INCREMENT";
+	mysqli_query($koneksi,$sql14);
+	mysqli_query($koneksi,$sql15);
+	mysqli_query($koneksi,$sql16);
 
 	
 ?>

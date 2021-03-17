@@ -28,7 +28,7 @@
 	$now = date('Y-m-d H:i:s');
 	
 
-	$sq1="select * from hapus_detail where id_barang_detail=$x2";
+	$sq1="select * from hapus_detail where id_barang_detail=$x2 and status!='Ditolak'";
 	$pr1=mysqli_query($koneksi,$sq1);
 	$ketemu=mysqli_num_rows($pr1);
 	if($ketemu<=0){

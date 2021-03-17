@@ -1,5 +1,5 @@
 <?php
- require "koneksi.php";
+ 
  if (isset($_POST['upload'])) { // IF 1
   	$pesan='';
 	$namafile=basename($_FILES["fileToUpload"]["name"]);

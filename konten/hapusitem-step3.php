@@ -22,7 +22,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Inventaris</a></li>
-              <li class="breadcrumb-item"><a href="#">Hapus Inventaris</a></li>
+              <li class="breadcrumb-item"><a href="index.php?p=hapusitem">Hapus Inventaris</a></li>
               <li class="breadcrumb-item active">Hapus Inventaris Step 3</li>
             </ol>
           </div><!-- /.col -->
@@ -125,12 +125,17 @@
                   </tr>
                   </tfoot>
                 </table><br>
+                <span style="float:left;" class="mr-1">
                 <a href="index.php?p=hapusitem-step2">
                   <button class="btn btn-primary">Tambah Item Lain</button>
                 </a>
-                <a href="aksi_hapusitem_step3.php?id=<?= $id_hapus; ?>">
-                  <button class="btn btn-success">Selesai</button>
-                </a>  
+                </span>
+                <span style="float:left;">
+                <form action='aksi_hapusitem_step3.php' method='post'>                          
+                          <input type='hidden' name='id' value=<?= $id_hapus; ?>>
+                          <button type='submit' id='submitForm' class='btn btn-success'>Selesai</button>
+                </form>
+                </span>
               </div>
               <!-- /.card-body -->
             </div>
@@ -143,4 +148,24 @@
       <!-- /.container-fluid -->
     </section>
             <!-- Main content -->
+            <script>
+   //$('#submitForm').on('click',function(e){ 
+    document.querySelector("#submitForm").addEventListener('click', function(e){       
+      e.preventDefault();
+      var form = $(this).parents('form');
+      Swal.fire({
+            title: 'Konfirmasi Selesai?',
+            text: "Pastikan data sudah benar karena proses tidak akan bisa di batalkan!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Selesaikan!'            
+        }).then((result) => {
+            if (result.value) {
+                form.submit();
+            }
+        });
+    });
+</script>            
     

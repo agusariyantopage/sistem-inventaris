@@ -6,13 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Klik Tanda Centang Pada Item Yang Akan Dihapus</h1>
+            <h1 class="m-0">Mutasi Inventaris</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Inventaris</a></li>
-              <li class="breadcrumb-item"><a href="index.php?p=hapusitem">Hapus Inventaris</a></li>
-              <li class="breadcrumb-item active">Hapus Inventaris Step 2</li>
+              <li class="breadcrumb-item"><a href="#">Inventaris</a></li>              
+              <li class="breadcrumb-item active">Mutasi Inventaris</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -25,21 +24,21 @@
           <div class="col-md-12">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Penentuan Item Dihapus</h3>
+                <h3 class="card-title">Mutasi Inventaris</h3>
+                <div class="flash-data" data-flashdata="<?= Flasher::message() ?>"></div>
               </div> 
               <!-- /.card-header -->
-              <div class="card-body">
-                
+              <div class="card-body">               
                 <table id="example2" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>ID </th>
                     <th>Deskripsi</th>
-                    <th>Spesifikasi</th> 
+                    <th>Lokasi</th> 
                     <th>Kondisi</th>
                     <th>Unit</th>                   
-                    <th>Lokasi Barang</th>
-                    <th>Pilih</th>
+                    <th>Update Terakhir</th>
+                    <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -64,7 +63,7 @@
                             
                           </td>                        
                         <td><?= $r['deskripsi']; ?></td>                         
-                        <td><?= $r['spesifikasi']; ?></td> 
+                        <td><?= $r['lokasi']; ?></td> 
                         <td>
                           <?php
                             if ($r['kondisi']=='Baik') {
@@ -77,11 +76,20 @@
                            ?>                          
                         </td> 
                         <td><?= $r['nama_panjang']; ?></td>
-                        <td><?= $r['lokasi']; ?></td> 
-                        <td align="center">
-                            <a href="aksi_hapusitem_step2.php?id=<?= $r['id_barang_detail']; ?>"><span class="fas fa-check-circle"></span></a>
-                            &nbsp;                                                       
-                        </td>
+                        <td><?= $r['perubahan_terakhir']; ?></td> 
+                        <td>
+                        <a href="index.php?p=mutasiitem-ubahdata&id=<?= $r['id_barang_detail']; ?>"><span class="fas fa-edit"></span></a>
+                        <?php
+                          if($r['kondisi']=='Baik'){
+                            echo "<a href='index.php?p=mutasiitem-ubahdata-broke&id=$r[id_barang_detail]'><span class='fas fa-wrench'></span></a>";
+                          } else {  
+                            echo "<a href='index.php?p=mutasiitem-ubahdata-repair&id=$r[id_barang_detail]'><span class='fas fa-ambulance'></span></a>";
+                          }   
+                        ?>
+                        <!-- <a href="#"><span class="fas fa-money-check-alt"></span></a> -->
+                        <a href="index.php?p=mutasiitem-log&id=<?= $r['id_barang_detail']; ?>"><span class="fas fa-info-circle"></span></a>
+                        </td> 
+                        
                       </tr>
                   <?php
                     }
@@ -91,11 +99,11 @@
                   <tr>
                     <th>ID </th>
                     <th>Deskripsi</th>
-                    <th>Spesifikasi</th> 
+                    <th>Lokasi</th> 
                     <th>Kondisi</th> 
                     <th>Unit</th>                   
-                    <th>Lokasi Barang</th>
-                    <th>Pilih</th> 
+                    <th>Update Terakhir</th>
+                    <th>Aksi</th> 
                     
                   </tr>
                   </tfoot>
@@ -113,4 +121,4 @@
       <!-- /.container-fluid -->
     </section>
             <!-- Main content -->
-    
+          

@@ -109,6 +109,28 @@
 		include "konten/tambahitem_yayasan.php";}	
 	elseif ($_GET['p']=='tambahitem-rinci'&&$tipeakses=='Yayasan') {
 		include "konten/tambahitem_yayasan_rinci.php";}
+
+	elseif ($_GET['p']=='mutasiitem'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/mutasi_item.php";}
+	elseif ($_GET['p']=='mutasiitem-ubahdata'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/mutasi_item_ubahdata.php";}
+	elseif ($_GET['p']=='mutasiitem-ubahdata-broke'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/mutasi_item_ubahdata_broke.php";}
+	elseif ($_GET['p']=='mutasiitem-ubahdata-repair'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/mutasi_item_ubahdata_repair.php";}
+	elseif ($_GET['p']=='mutasiitem-log'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/mutasi_item_log.php";}
+
+	// Modul Bahan Habis Pakai (Unit Kerja)
+	elseif ($_GET['p']=='habispakai'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/habispakai_unit.php";}	
+	elseif ($_GET['p']=='habispakai-step1'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/habispakai_unit_step1.php";}	
+	elseif ($_GET['p']=='habispakai-step2'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/habispakai_unit_step2.php";}	
+	elseif ($_GET['p']=='habispakai-rinci'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/habispakai_unit_rinci.php";}	
+	
 	elseif ($_GET['p']=='hapusitem'&&$tipeakses=='Unit') {
 		include "konten/hapusitem.php";}
 	elseif ($_GET['p']=='hapusitem'&&$tipeakses=='Yayasan') {

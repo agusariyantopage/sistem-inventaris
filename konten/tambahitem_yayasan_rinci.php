@@ -182,8 +182,7 @@
                       } elseif($_GET['act']=='approve'&&($status!='Disetujui'&&$status!='Ditolak')){
                         echo "<form action='aksi_tambahitem_approve.php' method='post'>
                           <input type='hidden' name='id' value=$id_tambah>
-                          <button type='submit' id='submitForm' class='btn btn-info'>Setujui</button>
-                        </a>";
+                          <button type='submit' id='submitForm' class='btn btn-info'>Setujui</button>";
                       } else {
                         echo "<a href='index.php?p=tambahitem'>
                               <button class='btn btn-success'>Kembali</button>

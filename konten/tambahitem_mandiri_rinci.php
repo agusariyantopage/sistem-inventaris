@@ -139,7 +139,17 @@
                   </tbody>
                   
                 </table><br>
-                
+<?php
+                if($r1['status']=='Ditolak'){
+                  echo "<form action='#'>                          
+                      <div class='form-group'>
+                        <label for='alasan'>Alasan Penolakan</label>
+                        <textarea readonly='' class='form-control' name='alasan' rows='3'>$r1[alasan_ditolak]</textarea>
+                      </div>
+                    </form>";
+
+                }
+?>                
                 <a href="index.php?p=tambahitem-mandiri">
                   <button class="btn btn-success">Kembali</button>
                 </a>  
