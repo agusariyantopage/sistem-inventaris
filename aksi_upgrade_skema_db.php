@@ -18,14 +18,13 @@
 		tgl_setuju date NOT NULL,
 		tgl_terima_barang date NOT NULL,
 		dibuat_pada datetime NOT NULL DEFAULT current_timestamp(),
-		alasan_ditolak text NOT NULL DEFAULT NULL,
+		alasan_ditolak text DEFAULT NULL,
 		update_terakhir datetime NOT NULL DEFAULT current_timestamp(),
 		final int(1) NOT NULL DEFAULT 0
 	  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
 	$sql02="ALTER TABLE tambah
 	ADD PRIMARY KEY (id_tambah)";
-	$sql03="ALTER TABLE tambah
-	MODIFY id_tambah int(11) NOT NULL AUTO_INCREMENT;";
+	$sql03="ALTER TABLE tambah MODIFY id_tambah int(11) NOT NULL AUTO_INCREMENT;";
 	mysqli_query($koneksi,$sql01);
 	mysqli_query($koneksi,$sql02);
 	mysqli_query($koneksi,$sql03);

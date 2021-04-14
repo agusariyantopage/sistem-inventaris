@@ -396,6 +396,14 @@ if($jumlah_delete>=1){
   }
 ?>          
           <li class="nav-item">
+            <a href="index.php?p=barcode" class="nav-link">
+              <i class="nav-icon fas fa-barcode"></i>
+              <p>
+                Cetak Barcode               
+              </p>
+            </a>
+          </li> 
+          <li class="nav-item">
             <a href="index.php?p=bantuan" class="nav-link">
               <i class="nav-icon fas fa-question-circle"></i>
               <p>

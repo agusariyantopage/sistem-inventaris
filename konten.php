@@ -131,6 +131,9 @@
 	elseif ($_GET['p']=='habispakai-rinci'&&$tipeakses=='Unit'&&$finalda==1) {
 		include "konten/habispakai_unit_rinci.php";}	
 	
+	elseif ($_GET['p']=='barcode'&&$tipeakses=='Unit') {
+		include "konten/barcode_list.php";}
+
 	elseif ($_GET['p']=='hapusitem'&&$tipeakses=='Unit') {
 		include "konten/hapusitem.php";}
 	elseif ($_GET['p']=='hapusitem'&&$tipeakses=='Yayasan') {
