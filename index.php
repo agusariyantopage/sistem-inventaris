@@ -161,6 +161,12 @@ $app = new Flasher;
                 </a>
               </li>              
               <li class="nav-item">
+                <a href="index.php?p=bahan" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Habis Pakai</p>
+                </a>
+              </li>              
+              <li class="nav-item">
                 <a href="index.php?p=pengguna" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pengguna</p>

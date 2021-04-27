@@ -53,6 +53,15 @@
 		include "konten/barang_add.php";}
 	elseif ($_GET['p']=='editbarang'&&$tipeakses=='Yayasan') {
 		include "konten/barang_edit.php";}
+	
+	// Bahan Habis Pakai	
+	elseif ($_GET['p']=='bahan'&&$tipeakses=='Yayasan') {
+		include "konten/bahan.php";}
+	elseif ($_GET['p']=='addbahan'&&$tipeakses=='Yayasan') {
+		include "konten/bahan_add.php";}
+	elseif ($_GET['p']=='editbahan'&&$tipeakses=='Yayasan') {
+		include "konten/bahan_edit.php";}
+
 	elseif ($_GET['p']=='imporkatalog') {
 		include "konten/impor_katalog.php";}	
 	elseif ($_GET['p']=='inventarisrinci') {
@@ -128,6 +137,8 @@
 		include "konten/habispakai_unit_step1.php";}	
 	elseif ($_GET['p']=='habispakai-step2'&&$tipeakses=='Unit'&&$finalda==1) {
 		include "konten/habispakai_unit_step2.php";}	
+	elseif ($_GET['p']=='habispakai-step3'&&$tipeakses=='Unit'&&$finalda==1) {
+		include "konten/habispakai_unit_step3.php";}	
 	elseif ($_GET['p']=='habispakai-rinci'&&$tipeakses=='Unit'&&$finalda==1) {
 		include "konten/habispakai_unit_rinci.php";}	
 	

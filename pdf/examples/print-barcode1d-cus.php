@@ -120,7 +120,7 @@ $kolom=3;
 
 while ($r=mysqli_fetch_array($perintah)) { 	
 	// EAN 13
-	$params = $pdf->serializeTCPDFtagParameters(array($r['id_barang_detail'], 'EAN13', '', '', '', 18, 0.4, array($style), 'N'));
+	$params = $pdf->serializeTCPDFtagParameters(array($r['id_barang_detail'], 'C128', '', '', '', 18, 0.4, array($style), 'N'));
 	if ($jr%$kolom==0&&$jr<$kolom){
 		$html.='<tr>';	
 	} elseif ($jr%$kolom==0&&$jr>=$kolom){

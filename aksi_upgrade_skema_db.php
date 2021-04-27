@@ -93,5 +93,8 @@
 	mysqli_query($koneksi,$sql15);
 	mysqli_query($koneksi,$sql16);
 
-	
+	$sql17="CREATE TABLE barang_habispakai ( id_barang_habispakai INT(10) NOT NULL AUTO_INCREMENT , deskripsi VARCHAR(150) NOT NULL ,
+	 spesifikasi VARCHAR(150) NOT NULL , satuan VARCHAR(100) NOT NULL , harga DOUBLE(17,2) NOT NULL DEFAULT '0' , update_terakhir DATETIME NOT NULL DEFAULT
+	  CURRENT_TIMESTAMP , PRIMARY KEY (id_barang_habispakai)) ENGINE = InnoDB";
+	mysqli_query($koneksi,$sql17);  
 ?>
