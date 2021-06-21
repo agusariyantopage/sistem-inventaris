@@ -97,4 +97,12 @@
 	 spesifikasi VARCHAR(150) NOT NULL , satuan VARCHAR(100) NOT NULL , harga DOUBLE(17,2) NOT NULL DEFAULT '0' , update_terakhir DATETIME NOT NULL DEFAULT
 	  CURRENT_TIMESTAMP , PRIMARY KEY (id_barang_habispakai)) ENGINE = InnoDB";
 	mysqli_query($koneksi,$sql17);  
+	
+	// Update 11 Mei 2021
+	$sql18="ALTER TABLE habispakai_detail	DROP deskripsi,DROP satuan";
+	mysqli_query($koneksi,$sql18);
+	$sql19="ALTER TABLE habispakai_detail ADD id_barang_habispakai INT(10) NOT NULL AFTER id_habispakai";
+	mysqli_query($koneksi,$sql19);
+	$sql20="ALTER TABLE tambah ADD diterima INT(1) NOT NULL DEFAULT '0' AFTER final";
+	mysqli_query($koneksi,$sql20);
 ?>

@@ -79,7 +79,7 @@
                 ?>
       <?php 
         } else {
-          echo "File Sudah Diupload : <a target='blank' href='sptjm/".$file_sptjm."'>".$file_sptjm."</a> ";
+          echo "File Sudah Diupload : <a target='blank' href='sptjm/".$file_sptjm."'>".$file_sptjm."</a> Download SPTJM Awal : <a target='blank' href='pdf/examples/spfinalisasida.php'>Unduh</a> ";
           //echo "<br><i>Catatan: Apabila terjadi kesalahan upload silahkan hubungi Yayasan</i>";
         }
        ?>          

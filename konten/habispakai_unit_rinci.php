@@ -90,7 +90,7 @@
                       //$sql="select barang.*,kategori,subkategori from barang,kategori,subkategori where barang.id_subkategori=subkategori.id_subkategori and kategori.id_kategori=subkategori.id_kategori";
                       // Akses Yayasan / Unit Kerja
                       
-                      $sql="select * from habispakai_detail where id_habispakai=$id order by deskripsi";
+                      $sql="select habispakai_detail.*,deskripsi,satuan from barang_habispakai,habispakai_detail where barang_habispakai.id_barang_habispakai=habispakai_detail.id_barang_habispakai and id_habispakai=$id order by deskripsi";
                       $sub=0;
                       // echo $sql;
                       $perintah=mysqli_query($koneksi,$sql);

@@ -73,7 +73,7 @@
                       //$sql="select barang.*,kategori,subkategori from barang,kategori,subkategori where barang.id_subkategori=subkategori.id_subkategori and kategori.id_kategori=subkategori.id_kategori";
                       // Akses Yayasan / Unit Kerja
                       $id_unit= $_SESSION['idunit'];
-                      $sql="select habispakai.*,nama_panjang from habispakai,unit_kerja where habispakai.id_unit=unit_kerja.id_unit and habispakai.id_unit=$id_unit";
+                      $sql="select habispakai.*,nama_panjang from habispakai,unit_kerja where habispakai.id_unit=unit_kerja.id_unit and habispakai.id_unit=$id_unit and final=1";
                      
                       // echo $sql;
                       $perintah=mysqli_query($koneksi,$sql);

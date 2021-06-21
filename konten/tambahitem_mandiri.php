@@ -92,6 +92,12 @@
                               echo "<span class='badge badge-success'>";
                             }
                            echo $r['status']; 
+                           if($r['status']=='Disetujui'&&$r['diterima']==0){
+                              echo ' (Barang Belum Diterima)';
+                            } 
+                            if ($r['status']=='Disetujui'&&$r['diterima']==1){
+                              echo ' (Barang Sudah Diterima)';
+                            }
                            echo "</span>";
                            ?>                          
                         </td> 
@@ -106,6 +112,13 @@
  <?php 
   }
  ?> 
+ <?php 
+    if($r['status']=='Disetujui'&&$r['diterima']==0){
+ ?>  
+  <a href="aksi_tambahitem_terimabarang.php?id=<?= $r['id_tambah']; ?>" onclick="return confirm('Apakah Anda Yakin Barang Pada Pengajuan Ini Sudah Diterima?')"><span class="fas fa-shipping-fast"></span></a>&nbsp;
+ <?php 
+  }
+ ?>
   <a href="index.php?p=tambahitem-mandiri-rinci&id=<?= $r['id_tambah']; ?>"><span class="fas fa-info-circle"></span></a>&nbsp;
  
 </td> 

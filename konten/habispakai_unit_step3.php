@@ -9,10 +9,10 @@
             <h1 class="m-0">Klik Tanda Centang Pada Item Yang Akan Dihapus</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Inventaris</a></li>
-              <li class="breadcrumb-item"><a href="index.php?p=hapusitem">Hapus Inventaris</a></li>
-              <li class="breadcrumb-item active">Hapus Inventaris Step 2</li>
+          <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Barang Habis Pakai</a></li>                          
+              <li class="breadcrumb-item"><a href="index.php?p=habispakai">Pelaporan</a></li> 
+              <li class="breadcrumb-item active">Step 3</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -69,9 +69,10 @@
                               </button>
                             </div>
                             <div class="modal-body"> 
-                              <form action="index.php" id="proses<?= $r['id_barang_habispakai']; ?>" method="post">
+                              <form action="aksi_habispakai_step3.php" id="proses<?= $r['id_barang_habispakai']; ?>" method="post">
                               <div class="form-group">
                                 <label for="harga">Harga Per / <?= $r['satuan']; ?></label>
+                                <input type="hidden" name="idbhn" value="<?= $r['id_barang_habispakai']; ?>">
                                 <input type="number" name="harga" id="harga" placeholder="Masukkan Harga Satuan . . ." class="form-control">
                               </div>
                               <div class="form-group">
