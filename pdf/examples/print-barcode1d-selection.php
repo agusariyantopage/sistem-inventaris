@@ -107,27 +107,22 @@ $style = array(
 	'fontsize' => 8,
 	'stretchtext' => 4
 );
-$lokasi=$_GET['lok'];
-if($_SESSION['level']==1) {
-	$sql="select barang_detail.*,barang.*,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja order by lokasi";
-} else {
-	$id_unit= $_SESSION['idunit'];
-	$sql="select barang_detail.*,barang.*,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja and barang_detail.id_unitkerja=$id_unit and md5(lokasi)='$lokasi' order by lokasi";
-}
-$perintah=mysqli_query($koneksi,$sql);
+
 $jr=0;
 $kolom=3;
 
-while ($r=mysqli_fetch_array($perintah)) { 	
+$jumlah=count($_SESSION['barcode_cart']);
+for ($row = 0; $row < $jumlah; $row++) {			  
+	
 	// EAN 13
-	$params = $pdf->serializeTCPDFtagParameters(array($r['id_barang_detail'], 'C128', '', '', '', 18, 0.4, array($style), 'N'));
+	$params = $pdf->serializeTCPDFtagParameters(array($_SESSION['barcode_cart'][$row][0], 'C128', '', '', '', 18, 0.4, array($style), 'N'));
 	if ($jr%$kolom==0&&$jr<$kolom){
 		$html.='<tr>';	
 	} elseif ($jr%$kolom==0&&$jr>=$kolom){
 		$html.='</tr><tr>';	
 	} 
 	
-	$html.='<td height="143" align="center">'.$r['id_barang_detail'].'<br><tcpdf method="write1DBarcode" params="'.$params.'" /><br>'.$r['lokasi'].':'.$r['deskripsi'].'</td>';
+	$html.='<td height="143" align="center">'.$_SESSION['barcode_cart'][$row][0].'<br><tcpdf method="write1DBarcode" params="'.$params.'" /><br>'.$_SESSION['barcode_cart'][$row][2].':'.$_SESSION['barcode_cart'][$row][1].'</td>';
 	$jr=$jr+1;
 	
 }
@@ -139,7 +134,7 @@ $pdf->writeHTML($html, true, 0, true, 0);
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
 $tgl= date('Ymd_h:i:s');
-$fname=$tgl."_printbarcode.pdf";
+$fname=$tgl."_printbarcode_selection.pdf";
 $pdf->Output($fname, 'I');
 
 //============================================================+

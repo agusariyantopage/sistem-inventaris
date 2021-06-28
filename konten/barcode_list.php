@@ -42,7 +42,7 @@
                     ?>              
                       <tr>
                         
-                        <td><?= $r['lokasi']; ?></td>                                      
+                        <td><a href="index.php?p=barcode-by-lokasi&lok=<?= md5($r['lokasi']); ?>"><?= $r['lokasi']; ?></a></td>                                      
                         <td align="center">
                             <a target="blank" href="pdf/examples/print-barcode1d-cus.php?lok=<?= md5($r['lokasi']); ?>"><button class="btn btn-info"><i class="fas fa-print"></i> Cetak Barcode</button></a>
                             &nbsp;

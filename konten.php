@@ -144,6 +144,8 @@
 	
 	elseif ($_GET['p']=='barcode'&&$tipeakses=='Unit') {
 		include "konten/barcode_list.php";}
+	elseif ($_GET['p']=='barcode-by-lokasi'&&$tipeakses=='Unit') {
+		include "konten/barcode_list_by_lokasi.php";}
 
 	elseif ($_GET['p']=='hapusitem'&&$tipeakses=='Unit') {
 		include "konten/hapusitem.php";}
