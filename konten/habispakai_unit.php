@@ -59,9 +59,9 @@
                   $thead="<tr>
                       <th>ID </th>
                       <th>Unit Kerja</th>
-                      <th>Sumber Dana</th> 
-                      <th>Keterangan Sumber Dana</th>
-                      <th>Tanggal Terima</th>                   
+                      <th>Diajukan Oleh</th> 
+                      <th>Disetujui Oleh</th>
+                      <th>Status</th>                   
                       <th>Perubahan Terakhir</th>
                       <th>Aksi</th>
                     </tr>";
@@ -82,18 +82,43 @@
                       <tr>
                         <td><?= $r['id_habispakai']; ?></td>                        
                         <td><?= $r['nama_panjang']; ?></td> 
-                        <td><?= $r['tipe_sumber']; ?></td>                         
-                        <td><?= $r['keterangan_tipe_sumber']; ?></td> 
-                        <td><?= $r['tgl_terima_barang']; ?></td>
+                        <td><?= $r['pengaju']; ?></td>                         
+                        <td><?= $r['penanggung']; ?></td> 
+                        <td>
+                        <?php
+                            if ($r['status']=='Sedang Diverifikasi') {
+                              echo "<span class='badge badge-warning'>";
+                            } elseif($r['status']=='Ditolak') {
+                              echo "<span class='badge badge-danger'>";
+                            } else {
+                              echo "<span class='badge badge-success'>";
+                            }
+                           echo $r['status']; 
+                           if($r['status']=='Disetujui'&&$r['diterima']==0){
+                              echo ' (Barang Belum Diterima)';
+                            } 
+                            if ($r['status']=='Disetujui'&&$r['diterima']==1){
+                              echo ' (Barang Sudah Diterima)';
+                            }
+                           echo "</span>";
+                           ?>  
+                        </td>
                         <td><?= $r['update_terakhir']; ?></td> 
                         <td>
-<?php 
-    if(1==0){
+                        <?php 
+    if($r['status']=='Sedang Diverifikasi'){
  ?>  
-  <a href="#" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Pengajuan Ini?')"><span class="fas fa-trash"></span></a>&nbsp;
+  <a href="aksi_habispakai_delete_pengajuan.php?id=<?= $r['id_habispakai']; ?>" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Pengajuan Ini?')"><span class="fas fa-trash"></span></a>&nbsp;
  <?php 
   }
  ?> 
+ <?php 
+    if($r['status']=='Disetujui'&&$r['diterima']==0){
+ ?>  
+  <a href="aksi_habispakai_terimabarang.php?id=<?= $r['id_habispakai']; ?>" onclick="return confirm('Apakah Anda Yakin Barang Pada Pengajuan Ini Sudah Diterima?')"><span class="fas fa-shipping-fast"></span></a>&nbsp;
+ <?php 
+  }
+ ?>
   <a href="index.php?p=habispakai-rinci&id=<?= $r['id_habispakai']; ?>"><span class="fas fa-info-circle"></span></a>&nbsp;
  
 </td> 

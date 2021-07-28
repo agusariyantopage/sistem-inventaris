@@ -105,4 +105,12 @@
 	mysqli_query($koneksi,$sql19);
 	$sql20="ALTER TABLE tambah ADD diterima INT(1) NOT NULL DEFAULT '0' AFTER final";
 	mysqli_query($koneksi,$sql20);
+
+	// Update 07 Juli 2021
+	$sql21="ALTER TABLE habispakai CHANGE tgl_setuju_hapus tgl_setuju DATE NOT NULL";
+	mysqli_query($koneksi,$sql21);
+
+	// Update 28 Juli 2021
+	$sql22="ALTER TABLE habispakai ADD diterima INT NOT NULL DEFAULT '0' AFTER final";
+	mysqli_query($koneksi,$sql22);
 ?>

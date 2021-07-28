@@ -118,6 +118,11 @@
 		include "konten/tambahitem_yayasan.php";}	
 	elseif ($_GET['p']=='tambahitem-rinci'&&$tipeakses=='Yayasan') {
 		include "konten/tambahitem_yayasan_rinci.php";}
+// Approval Bahan Habis Pakai		
+	elseif ($_GET['p']=='habispakai'&&$tipeakses=='Yayasan') {
+		include "konten/habispakai_yayasan.php";}	
+	elseif ($_GET['p']=='habispakai-rinci'&&$tipeakses=='Yayasan') {
+		include "konten/habispakai_yayasan_rinci.php";}
 
 	elseif ($_GET['p']=='mutasiitem'&&$tipeakses=='Unit'&&$finalda==1) {
 		include "konten/mutasi_item.php";}
