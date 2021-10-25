@@ -33,7 +33,8 @@
           <div class="col-md-12">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Daftar Barang Habis Pakai</h3>                
+                <h3 class="card-title">Daftar Barang Habis Pakai</h3> 
+                <div class="flash-data" data-flashdata="<?= Flasher::message() ?>"></div>               
               </div>
               
               <!-- /.card-header -->

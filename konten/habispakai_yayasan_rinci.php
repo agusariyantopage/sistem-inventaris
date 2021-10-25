@@ -41,69 +41,84 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-3">
-                    <label>Unit Pengaju</label> 
+                    <label>Unit Kerja</label> 
                   </div>
                   <div class="col-md-3">                    
                     <?= $r1['nama_panjang']; ?>
                   </div>
                   <div class="col-md-3">
-                    <label>Status Pengajuan</label>  
-                  </div>
-                  <div class="col-md-3">                    
-                    <?= $r1['status']; ?>
-                  </div>                  
-                </div>
-                <div class="row">
-                  <div class="col-md-3">
-                    <label>Tanggal Diajukan</label> 
+                    <label>Waktu Input</label>  
                   </div>
                   <div class="col-md-3">                    
                     <?= $r1['dibuat_pada']; ?>
-                  </div>
-                  <div class="col-md-3">
-                    <label>Tanggal Disetujui</label>  
-                  </div>
-                  <div class="col-md-3">                    
-                    <?= $r1['tgl_setuju']; ?>
-                  </div>
-                 </div>
+                  </div>                  
+                </div>  
                 <div class="row">
                   <div class="col-md-3">
-                    <label>Nama Pengaju</label> 
+                    <label>Diajukan Oleh</label> 
                   </div>
                   <div class="col-md-3">                    
                     <?= $r1['pengaju']; ?>
                   </div>
                   <div class="col-md-3">
-                    <label>Nama Penanggung Jawab</label>  
+                    <label>Disetujui Oleh</label>  
                   </div>
                   <div class="col-md-3">                    
                     <?= $r1['penanggung']; ?>
-                  </div>
-                 </div>
+                  </div>                  
+                </div>  
                 <div class="row">
                   <div class="col-md-3">
-                    <label>Sumber Pendanaan</label> 
+                    <label>Sumber Pembiayaan</label> 
                   </div>
                   <div class="col-md-3">                    
                     <?= $r1['tipe_sumber']; ?>
                   </div>
                   <div class="col-md-3">
-                    <label>Keterangan Tambahan</label>  
+                    <label>Keterangan Sumber</label>  
                   </div>
                   <div class="col-md-3">                    
                     <?= $r1['keterangan_tipe_sumber']; ?>
+                  </div>                  
+                </div>  
+                <div class="row">
+                  <div class="col-md-3">
+                    <label>Tanggal Perkiraan Terima Barang</label>  
                   </div>
-                 </div>
+                  <div class="col-md-3">                    
+                    <?= $r1['tgl_terima_barang']; ?>
+                  </div> 
+                  <div class="col-md-3">
+                    <label>Periode Pemakaian</label> 
+                  </div>
+                  <div class="col-md-3">                    
+                    <?= $r1['periode_pakai']; ?>
+                  </div>                                  
+                </div>  
+                <div class="row">
+                  <div class="col-md-3">
+                    <label>Tanggal Awal Pemakaian</label>  
+                  </div>
+                  <div class="col-md-3">                    
+                    <?= $r1['tgl_awal_pakai']; ?>
+                  </div> 
+                  <div class="col-md-3">
+                    <label>Tanggal Akhir Pemakaian</label> 
+                  </div>
+                  <div class="col-md-3">                    
+                    <?= $r1['tgl_akhir_pakai']; ?>
+                  </div>                                  
+                </div>
                 
-                
-
+                <br>
+                <b>RINCIAN PENGAJUAN</b>
                 <table id="input-group" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>ID </th>
                     <th>Deskripsi</th>
-                    <th>Jumlah</th> 
+                    <th>Jumlah Pengajuan</th> 
+                    <th>Jumlah Realisasi</th> 
                     <th>Harga</th>                                       
                     <th>Subtotal</th>
                     <th>Status</th>
@@ -126,6 +141,7 @@
                           </td>                        
                         <td><?= $r['deskripsi']; ?></td>                         
                         <td><?= $r['jumlah']; ?></td> 
+                        <td><?= $r['jumlah_realisasi']; ?></td> 
                         <td align="right"><?= number_format($r['harga']); ?></td>                         
                         <td><?=  number_format($r['jumlah']*$r['harga']); ?></td> 
                         <td align="center">
@@ -137,6 +153,49 @@
                   ?>                     
                   </tbody>
                   
+                </table><br>
+                <b>HISTORI REALISASI</b>
+                <table class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Supplier</th>                   
+                    <th>Tanggal Realisasi</th> 
+                    <th>Deskripsi</th>
+                    <th>Satuan</th>
+                    <th>Harga</th> 
+                    <th>Jumlah Realisasi</th>                                       
+                    <th>Subtotal</th>                   
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                      //$sql="select barang.*,kategori,subkategori from barang,kategori,subkategori where barang.id_subkategori=subkategori.id_subkategori and kategori.id_kategori=subkategori.id_kategori";
+                      // Akses Yayasan / Unit Kerja
+                      
+                      $sql3="select habispakai_realisasi.*,deskripsi,satuan from barang_habispakai,habispakai_realisasi where barang_habispakai.id_barang_habispakai=habispakai_realisasi.id_barang_habispakai and id_habispakai=$id_habispakai order by deskripsi";
+                      $sub=0;
+                      // echo $sql3;
+                      $perintah3=mysqli_query($koneksi,$sql3);
+                      while ($r3=mysqli_fetch_array($perintah3)) {     
+                    ?>              
+                      <tr>                                           
+                        <td><?= $r3['supplier']; ?></td>
+                        <td><?= $r3['tgl_realisasi']; ?></td>
+                        <td><?= $r3['deskripsi']; ?></td>                         
+                        <td><?= $r3['satuan']; ?></td>
+                        <td align="right"><?= number_format($r3['harga']); ?></td>                         
+                        <td align="right"><?= number_format($r3['jumlah']); ?></td>                        
+                        <td align="right"><?= number_format($r3['jumlah']*$r3['harga']); ?></td>
+                      </tr>
+                  <?php
+                    $sub=$sub+($r3['jumlah']*$r3['harga']);
+                    }
+                  ?>                     
+                  </tbody>
+                  <tfoot>
+                    <td colspan=6 align="center"><b>GRANDTOTAL</b></td>
+                    <td align="right"><b><?= number_format($sub); ?></b></td>
+                  </tfoot>                 
                 </table><br>
                 <?php 
                     if($status=='Ditolak'){

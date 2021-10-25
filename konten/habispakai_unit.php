@@ -95,10 +95,10 @@
                             }
                            echo $r['status']; 
                            if($r['status']=='Disetujui'&&$r['diterima']==0){
-                              echo ' (Barang Belum Diterima)';
+                              //echo ' (Barang Belum Diterima)';
                             } 
                             if ($r['status']=='Disetujui'&&$r['diterima']==1){
-                              echo ' (Barang Sudah Diterima)';
+                              //echo ' (Barang Sudah Diterima)';
                             }
                            echo "</span>";
                            ?>  
@@ -115,7 +115,7 @@
  <?php 
     if($r['status']=='Disetujui'&&$r['diterima']==0){
  ?>  
-  <a href="aksi_habispakai_terimabarang.php?id=<?= $r['id_habispakai']; ?>" onclick="return confirm('Apakah Anda Yakin Barang Pada Pengajuan Ini Sudah Diterima?')"><span class="fas fa-shipping-fast"></span></a>&nbsp;
+  <a href="index.php?p=habispakai-rinci&id=<?= $r['id_habispakai']; ?>"><span class="fas fa-shipping-fast"></span></a>&nbsp;
  <?php 
   }
  ?>

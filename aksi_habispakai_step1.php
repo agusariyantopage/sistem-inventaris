@@ -22,13 +22,16 @@
 	$x10	=''; // Alasan Dihapus
 	$x11	=false; // Update Terakhir
 	$x12	=0;
+	$x13 =$_POST['periodepakai'];
+	$x14 =$_POST['tglawalpakai'];
+	$x15 =$_POST['tglakhirpakai'];
 	
 	
 
 	
 	$sql1="insert into habispakai(id_unit, tipe_sumber, keterangan_tipe_sumber, pengaju, penanggung,
 	 status, tgl_setuju, tgl_terima_barang, dibuat_pada, alasan_dihapus,
-	  update_terakhir, final) values($x1,'$x2','$x3','$x4','$x5',DEFAULT,'$x7','$x8',DEFAULT,'$x10',DEFAULT,$x12)";
+	  update_terakhir, final,periode_pakai,tgl_awal_pakai,tgl_akhir_pakai) values($x1,'$x2','$x3','$x4','$x5',DEFAULT,'$x7','$x8',DEFAULT,'$x10',DEFAULT,$x12,'$x13','$x14','$x15')";
 	echo $sql1;  
 	$perintah1=mysqli_query($koneksi,$sql1);
 	$sukses=mysqli_affected_rows($koneksi);

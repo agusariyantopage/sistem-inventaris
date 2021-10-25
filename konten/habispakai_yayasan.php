@@ -68,6 +68,7 @@
                         <td><?= $r['tipe_sumber']; ?></td>
                         <td><?= $r['update_terakhir']; ?></td> 
                         <td>
+                        <a onclick="return confirm('Perintah ini akan menghapus data secara permanen pada seluruh data transaksi #<?= $r['id_habispakai']; ?> dan turunannya, Yakin akan melanjutkan??')" href="aksi_habispakai_hapus_permanen.php?id=<?= $r['id_habispakai']; ?>"><span class="fas fa-eraser"></span></a>&nbsp;
                         <a href="index.php?p=habispakai-rinci&id=<?= $r['id_habispakai']; ?>"><span class="fas fa-info-circle"></span></a>&nbsp;
   <?php 
     if($r['status']=='Sedang Diverifikasi'){
@@ -77,6 +78,7 @@
     }
     if($r['status']=='Sedang Diverifikasi'){
  ?>
+  
   <a href="index.php?p=habispakai-rinci&id=<?= $r['id_habispakai']; ?>&act=approve"><span class="fas fa-check-circle"></span></a>&nbsp;
  
  <?php 

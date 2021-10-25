@@ -73,6 +73,24 @@ if(mysqli_num_rows($pr)>=1){
                  </select>  
               </div>
               <div class="form-group">
+                <label for="periodepakai">Periode Pemakaian Barang</label> <!-- Dari Sampai Penerimaan Melampirkan Nomor Nota Tanggal dan Nama Supplier -->
+                <select class="form-control" name="periodepakai" id="periodepakai" required="">
+                  <option>Tidak Terduga</option>
+                  <option>Mingguan</option>
+                  <option>Bulanan</option>
+                  <option>Semester</option>
+                  <option>Tahunan</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="tglawalpakai">Tanggal Awal Pemakaian</label>
+                <input  type="date" name="tglawalpakai" id="tglawalpakai" placeholder="Masukkan tanggal awal pemakaian barang . . ." required class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="tglakhirpakai">Tanggal Akhir Pemakaian</label>
+                <input  type="date" name="tglakhirpakai" id="tglakhirpakai" placeholder="Masukkan tanggal akhir pemakaian barang . . ." required class="form-control">
+              </div>    
+              <div class="form-group">
                 <label for="sumber">Sumber Pendanaan</label>
                 <input  type="text" name="sumber" id="sumber" placeholder="Masukkan sumber pengadaan seperti Mandiri/Bantuan/Sponsorship/DST . . ." required class="form-control">
               </div>              
@@ -81,7 +99,7 @@ if(mysqli_num_rows($pr)>=1){
                 <textarea name="ketsumber" id="ketsumber" placeholder="Masukkan keterangan tambahan seperti nama supplier / nomor sk bantuan / dst  . . ." required rows="3" class="form-control"></textarea>
               </div>              
               <div class="form-group">
-                <label for="tglterima">Tanggal Terima Barang</label>
+                <label for="tglterima">Tanggal Perkiraan Terima Barang</label>
                 <input  type="date" name="tglterima" id="tglterima" placeholder="Masukkan tanggal terima barang . . ." required class="form-control">
               </div>  
               <div class="form-group">

@@ -113,4 +113,28 @@
 	// Update 28 Juli 2021
 	$sql22="ALTER TABLE habispakai ADD diterima INT NOT NULL DEFAULT '0' AFTER final";
 	mysqli_query($koneksi,$sql22);
+
+	// Update 18 Agustus 2021
+	$sql23="ALTER TABLE habispakai ADD periode_pakai VARCHAR(50) NOT NULL DEFAULT 'Tidak Terduga' AFTER status, ADD tgl_awal_pakai DATE NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER periode_pakai, ADD tgl_akhir_pakai DATE NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER tgl_awal_pakai";
+	mysqli_query($koneksi,$sql23);
+	
+	$sql24="ALTER TABLE habispakai_detail ADD jumlah_realisasi INT(10) NOT NULL AFTER jumlah";
+	mysqli_query($koneksi,$sql24);
+
+	$sql25="CREATE TABLE habispakai_realisasi (
+		id_habispakai_realisasi int(17) NOT NULL,
+		id_habispakai int(17) NOT NULL,
+		id_barang_habispakai int(17) NOT NULL,
+		harga int(17) NOT NULL,
+		jumlah int(17) NOT NULL,
+		tgl_realisasi date NOT NULL,
+		supplier varchar(150) NOT NULL
+	  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+	mysqli_query($koneksi,$sql25);
+
+	$sql26="ALTER TABLE habispakai_realisasi ADD PRIMARY KEY (id_habispakai_realisasi)";	
+	mysqli_query($koneksi,$sql26);
+	
+	$sql27="ALTER TABLE habispakai_realisasi MODIFY id_habispakai_realisasi int(17) NOT NULL AUTO_INCREMENT";
+	mysqli_query($koneksi,$sql27);
 ?>
