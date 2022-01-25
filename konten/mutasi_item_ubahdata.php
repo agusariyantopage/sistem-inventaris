@@ -104,6 +104,11 @@ $r1=mysqli_fetch_array($perintah1);
 								<input  type="text" required="" value="<?= $r1['lokasi']; ?>" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi . . ." class="form-control">
 							</div>
 							<div class="form-group">
+								<label for="nilai_perolehan">Nilai Perolehan</label>
+								<input  type="text" required="" value="<?= $r1['nilai_perolehan']; ?>" name="nilai_perolehan" id="nilai_perolehan" placeholder="Masukkan Lokasi . . ." class="form-control">
+							</div>
+							
+							<div class="form-group">
 								<label for="catatan">Catatan</label>
 								<input  type="text" value="<?= $r1['catatan']; ?>"  name="catatan" id="catatan" placeholder="Masukkan catatan jika diperlukan . . ." class="form-control">
 							</div>						
