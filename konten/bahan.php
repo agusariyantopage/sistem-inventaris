@@ -54,7 +54,9 @@
                         <td><?= $r['update_terakhir']; ?></td>                                      
                         <td align="center">
                             <a href="index.php?p=editbahan&id=<?= $r['id_barang_habispakai']; ?>"><span class="fas fa-edit"></span></a>
-                            &nbsp;                                                       
+                            &nbsp;
+                            <a href="aksi_bahan_hapus.php?id=<?= $r['id_barang_habispakai']; ?>" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Data Ini? (hanya bisa dihapus jika data tidak memiliki data turunan)')"><span class="fas fa-trash"></span></a>
+                            &nbsp;                                                           
                         </td>
                       </tr>
                   <?php
