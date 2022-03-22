@@ -123,6 +123,8 @@
 		include "konten/habispakai_yayasan.php";}	
 	elseif ($_GET['p']=='habispakai-rinci'&&$tipeakses=='Yayasan') {
 		include "konten/habispakai_yayasan_rinci.php";}
+		elseif ($_GET['p']=='habispakai-laporan'&&$tipeakses=='Yayasan') {
+			include "konten/habispakai_yayasan_laporan.php";}	
 
 	elseif ($_GET['p']=='mutasiitem'&&$tipeakses=='Unit'&&$finalda==1) {
 		include "konten/mutasi_item.php";}

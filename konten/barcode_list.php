@@ -44,11 +44,13 @@
                         
                         <td><a href="index.php?p=barcode-by-lokasi&lok=<?= md5($r['lokasi']); ?>"><?= $r['lokasi']; ?></a></td>                                      
                         <td align="center">
-                            <a target="blank" href="pdf/examples/print-barcode1d-cus.php?lok=<?= md5($r['lokasi']); ?>"><button class="btn btn-info"><i class="fas fa-print"></i> Cetak Barcode</button></a>
+                            <a target="blank" href="pdf/examples/print-barcode1d-cus.php?lok=<?= md5($r['lokasi']); ?>"><button class="btn btn-info mb-1"><i class="fas fa-print"></i> Cetak Barcode</button></a>
                             &nbsp;
-                            <a target="blank" href="pdf/examples/print-barcode2d-cus.php?lok=<?= md5($r['lokasi']); ?>"><button class="btn btn-info"><i class="fas fa-print"></i> Cetak QRcode</button></a>
+                            <a target="blank" href="pdf/examples/print-barcode2d-cus.php?lok=<?= md5($r['lokasi']); ?>"><button class="btn btn-info mb-1"><i class="fas fa-print"></i> Cetak QRcode</button></a>
                             &nbsp;
-                            <a target="blank" href="pdf/examples/inventaris_by_ruang.php?lok=<?= md5($r['lokasi']); ?>"><button class="btn btn-info"><i class="fas fa-print"></i> Cetak Rekap</button></a>
+                            <a target="blank" href="pdf/examples/inventaris_by_ruang.php?lok=<?= md5($r['lokasi']); ?>"><button class="btn btn-info mb-1"><i class="fas fa-print"></i> Cetak Rekap</button></a>
+                            &nbsp;
+                            <a target="blank" href="pdf/examples/inventaris_by_ruang_rinci.php?lok=<?= md5($r['lokasi']); ?>"><button class="btn btn-info mb-1"><i class="fas fa-print"></i> Cetak Daftar Rinci</button></a>
                             &nbsp;
                                              
                       </td>
