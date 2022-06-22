@@ -137,4 +137,7 @@
 	
 	$sql27="ALTER TABLE habispakai_realisasi MODIFY id_habispakai_realisasi int(17) NOT NULL AUTO_INCREMENT";
 	mysqli_query($koneksi,$sql27);
+
+	$sql28="ALTER TABLE barang_detail ADD tanggal_perolehan DATE NOT NULL DEFAULT '2017-07-03' AFTER id_tambah;";
+	mysqli_query($koneksi,$sql28);
 ?>
