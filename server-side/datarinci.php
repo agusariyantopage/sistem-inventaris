@@ -63,7 +63,16 @@ $columns = array(
 	//array( 'db' => 'kondisi',     'dt' => 3 ),
 	array( 'db' => 'nama_panjang',     'dt' => 4 ),
 	array( 'db' => 'lokasi',     'dt' => 5 ),
-	array( 'db' => 'catatan',     'dt' => 6 )	
+	array( 'db' => 'tanggal_perolehan',     'dt' => 6 ),
+	array(
+		'db'        => 'nilai_perolehan',
+		'dt'        => 7,
+		'formatter' => function( $nilai, $row ) {
+			return number_format($nilai);      
+        
+		}
+	),
+	array( 'db' => 'catatan',     'dt' => 8 )	
 );
 
 // SQL server connection information

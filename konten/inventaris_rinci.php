@@ -28,12 +28,7 @@
               </div> 
               <!-- /.card-header -->
               <div class="card-body">
-                <a href="pdf/examples/print-barcode1d.php" target="blank">
-                  <button class="btn btn-primary mb-2">Cetak Barcode</button>
-                </a>
-                <a href="pdf/examples/print-barcode2d.php" target="blank">
-                  <button class="btn btn-success mb-2">Cetak QR-Code</button>
-                </a>                
+                         
                 <table id="inventaris-rinci"  class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -43,6 +38,8 @@
                     <th>Kondisi</th>
                     <th>Unit</th>                   
                     <th>Lokasi Barang</th>
+                    <th>Tanggal Perolehan</th>
+                    <th>Nilai Perolehan</th>
                     <th>Catatan</th>
                   </tr>
                   </thead>
@@ -75,7 +72,7 @@
         "info": true,
         "autoWidth": false,
         "responsive": true,
-        "ajax": "server-side/datarinci.php" 
+        "ajax": "server-side/datarinci.php"
     } );
 }) ;
 

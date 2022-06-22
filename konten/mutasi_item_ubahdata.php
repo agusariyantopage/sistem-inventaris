@@ -104,13 +104,18 @@ $r1=mysqli_fetch_array($perintah1);
 								<input  type="text" required="" value="<?= $r1['lokasi']; ?>" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi . . ." class="form-control">
 							</div>
 							<div class="form-group">
+								<label for="tanggal_perolehan">Tanggal Perolehan</label>
+								<input  type="date" required="" value="<?= $r1['tanggal_perolehan']; ?>" name="tanggal_perolehan" id="tanggal_perolehan" placeholder="Masukkan Lokasi . . ." class="form-control">
+							</div>
+							<div class="form-group">
 								<label for="nilai_perolehan">Nilai Perolehan</label>
 								<input  type="text" required="" value="<?= $r1['nilai_perolehan']; ?>" name="nilai_perolehan" id="nilai_perolehan" placeholder="Masukkan Lokasi . . ." class="form-control">
 							</div>
 							
 							<div class="form-group">
-								<label for="catatan">Catatan</label>
-								<input  type="text" value="<?= $r1['catatan']; ?>"  name="catatan" id="catatan" placeholder="Masukkan catatan jika diperlukan . . ." class="form-control">
+								<label for="catatan">Catatan (Nomor Seri / Plat / Sertifikat / DST)</label>
+								<textarea class="form-control" name="catatan" rows="5"><?= $r1['catatan']; ?></textarea>
+								
 							</div>						
 							<button type="submit"  id='submitForm' class="btn btn-primary">Simpan</button>
 
