@@ -15,6 +15,9 @@
 		$qty_rusak	=$_POST['qty_rusak'][$x];
 		$x3			=$_POST['lokasi'];
 		$x4			=$_POST['catatan'];
+		$x5			=$_POST['tanggal_perolehan'][$x];
+		$x6			=$_POST['nilai_perolehan'][$x];
+		$x6			=str_replace(',','',$x6);
 
   		//echo "Data Baris[".$x."]=".$_POST['qty_baik'][$x];
 		//echo "<br>";
@@ -22,13 +25,13 @@
 		//echo "<br>";
 		//echo $x1."|".$qty_baik."|".$qty_rusak."<br>";
 		for ($x_baik = 1; $x_baik <= $qty_baik; $x_baik++) {
-  		$sql="insert into barang_detail (id_barang,id_unitkerja,kondisi,tanggal_input,jam_input,id_input,lokasi,catatan) values('$x1',$x2,'Baik','$tanggal','$jam','$input_id','$x3','$x4')";
+  		$sql="insert into barang_detail (id_barang,id_unitkerja,kondisi,tanggal_input,jam_input,id_input,lokasi,catatan,tanggal_perolehan,nilai_perolehan) values('$x1',$x2,'Baik','$tanggal','$jam','$input_id','$x3','$x4','$x5',$x6)";
 			mysqli_query($koneksi,$sql);
 			//echo $sql."<br>";
 		}
 
 		for ($x_rusak = 1; $x_rusak <= $qty_rusak; $x_rusak++) {
-  		$sql2="insert into barang_detail (id_barang,id_unitkerja,kondisi,tanggal_input,jam_input,id_input,lokasi,catatan) values('$x1',$x2,'Rusak','$tanggal','$jam','$input_id','$x3','$x4')";
+  		$sql2="insert into barang_detail (id_barang,id_unitkerja,kondisi,tanggal_input,jam_input,id_input,lokasi,catatan,tanggal_perolehan,nilai_perolehan) values('$x1',$x2,'Rusak','$tanggal','$jam','$input_id','$x3','$x4','$x5',$x6)";
 			mysqli_query($koneksi,$sql2);
 			//echo $sql2."<br>";
 		}

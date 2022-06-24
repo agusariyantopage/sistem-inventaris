@@ -48,8 +48,8 @@
                       <th>Deskripsi</th>
                       <th style="width: 100px; min-width: 100px;" >Baik</th>
                       <th style="width: 100px; min-width: 100px;">Rusak</th>
-                      <th>Kategori</th>
-                      <th>Subkategori</th>                    
+                      <th>Tgl Perolehan</th>
+                      <th>Nilai Perolehan</th>                    
                       <th>Spesifikasi</th>                    
                       
                     </tr>
@@ -57,7 +57,7 @@
                     
                     <tbody>
                       <?php
-                        $sql="select barang.*,kategori,subkategori from barang,kategori,subkategori where barang.id_subkategori=subkategori.id_subkategori and kategori.id_kategori=subkategori.id_kategori order by deskripsi";
+                        $sql="select barang.*,kategori,subkategori from barang,kategori,subkategori where barang.id_subkategori=subkategori.id_subkategori and kategori.id_kategori=subkategori.id_kategori and barang.keterangan='Default Item' order by deskripsi";
                         $no=0;
                         $perintah=mysqli_query($koneksi,$sql);
                         while ($r=mysqli_fetch_array($perintah)) {     
@@ -73,8 +73,12 @@
                           <td align="center">
                               <input class="form-control" type="number" name="qty_rusak[]" value="0">
                           </td>                        
-                          <td><?= $r['kategori']; ?></td>
-                          <td><?= $r['subkategori']; ?></td>                        
+                          <td>
+                            <input class="form-control" type="date" name="tanggal_perolehan[]">                            
+                          </td>
+                          <td>
+                            <input class="form-control number-separator" type="text" name="nilai_perolehan[]" value="0">
+                          </td>                        
                           <td><?= $r['spesifikasi']; ?></td>              
                           
                         </tr>

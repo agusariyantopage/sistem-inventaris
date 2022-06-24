@@ -111,6 +111,14 @@ $r1=mysqli_fetch_array($perintah1);
 								</div>
 							</div>
 							<div class="form-group">
+								<label for="tanggal_perolehan">Tanggal Perolehan Barang</label>
+								<input  type="date" required="" name="tanggal_perolehan" id="tanggal_perolehan" placeholder="Masukkan Tanggal Perolehan . . ." class="form-control">
+							</div>	
+							<div class="form-group">
+								<label for="nilai_perolehan">Nilai Perolehan</label>
+								<input  type="text" required="" name="nilai_perolehan" id="nilai_perolehan" placeholder="Masukkan Nilai Perolehan . . ." class="form-control  number-separator">
+							</div>	
+							<div class="form-group">
 								<label for="lokasi">Lokasi Barang</label>
 								<input  type="text" required="" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi . . ." class="form-control">
 							</div>	

@@ -13,6 +13,9 @@
 	$x7	=$_POST['qtyrusak'];
 	$x8	=$_POST['lokasi'];
 	$x9	=$_POST['catatan'];
+	$x10	=$_POST['tanggal_perolehan'];
+	$x11	=$_POST['nilai_perolehan'];
+	$x11=str_replace(',','',$x11);
 	date_default_timezone_set('Asia/Singapore');
 	$tanggal=date('Y-m-d');
 	$jam=date('H:i:s');
@@ -22,12 +25,12 @@
 
 	// Perintah Insert Tabel
 	for ($x = 1; $x <= $x6; $x++) {
-  		$sql1="insert into barang_detail (id_barang,id_unitkerja,kondisi,tanggal_input,jam_input,id_input,lokasi,catatan) values('$x0',$x1a,'Baik','$tanggal','$jam','$input_id','$x8','$x9')";
+  		$sql1="insert into barang_detail (id_barang,id_unitkerja,kondisi,tanggal_input,jam_input,id_input,lokasi,catatan,tanggal_perolehan,nilai_perolehan) values('$x0',$x1a,'Baik','$tanggal','$jam','$input_id','$x8','$x9','$x10',$x11)";
 		mysqli_query($koneksi,$sql1);
 	}
 
 	for ($x = 1; $x <= $x7; $x++) {
-		$sql2="insert into barang_detail (id_barang,id_unitkerja,kondisi,tanggal_input,jam_input,id_input,lokasi,catatan) values('$x0',$x1a,'Rusak','$tanggal','$jam','$input_id','$x8','$x9')";
+		$sql2="insert into barang_detail (id_barang,id_unitkerja,kondisi,tanggal_input,jam_input,id_input,lokasi,catatan,tanggal_perolehan,nilai_perolehan) values('$x0',$x1a,'Rusak','$tanggal','$jam','$input_id','$x8','$x9','$x10',$x11)";
 		mysqli_query($koneksi,$sql2);
 	}
 

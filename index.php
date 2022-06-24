@@ -541,6 +541,8 @@ if($jumlah_delete>=1){
 <!-- <script src="dist/js/pages/dashboard2.js"></script>-->
 <!-- Select2 -->
 <script src="plugins/select2/js/select2.full.min.js"></script>
+<!-- numberformatter -->
+<script src="dist/js/easy-number-separator.js"></script>
 
 <!-- Page specific script -->
 <script>
@@ -567,6 +569,11 @@ if($jumlah_delete>=1){
       "autoWidth": false,
       "responsive": true,
     });
+    easyNumberSeparator({
+      selector: '.number-separator',
+      separator: ',',
+      resultInput: '#result_input',
+    })
     
     //Initialize Select2 Elements
     $('.select2').select2()
