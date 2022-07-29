@@ -23,9 +23,8 @@ require '../koneksi.php';
 
 $id_unit = $_SESSION['idunit'];
 $view_name = 'view_data_rinci_' . $id_unit;
-$lok = $_SESSION['lok'];
 //$sql="select barang_detail.*,barang.*,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja and barang_detail.id_unitkerja=$id_unit";
-$sql = "create VIEW " . $view_name . " as select barang_detail.*,deskripsi,spesifikasi,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja and barang_detail.id_unitkerja=$id_unit and md5(lokasi)='$lok'";
+$sql = "create VIEW " . $view_name . " as select barang_detail.*,deskripsi,spesifikasi,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja and barang_detail.id_unitkerja=$id_unit";
 
 
 $sql1 = 'drop view ' . $view_name;
@@ -46,7 +45,7 @@ $primaryKey = 'id_barang_detail';
 $columns = array(
 	array('db' => 'id_barang_detail', 'dt' => 0),
 	array('db' => 'deskripsi',  'dt' => 1),
-	array('db' => 'spesifikasi',   'dt' => 2),
+	array('db' => 'lokasi',   'dt' => 2),
 	array(
 		'db'        => 'kondisi',
 		'dt'        => 3,
@@ -60,12 +59,27 @@ $columns = array(
 	),
 	//array( 'db' => 'kondisi',     'dt' => 3 ),
 	array('db' => 'nama_panjang',     'dt' => 4),
-	array('db' => 'lokasi',     'dt' => 5),
+	array('db' => 'perubahan_terakhir',     'dt' => 5),
 	array(
 		'db'        => 'kondisi',
 		'dt'        => 6,
 		'formatter' => function ($d, $row) {
-			return '<a href="aksi_tambahbcode.php?id=' . $row[0] . '"> <i class="fas fa-check-circle"></i></a>';
+            
+            if($row[3]=='Baik'){
+                return '
+                <a href="index.php?p=mutasiitem-ubahdata&id='. $row[0] .'"><span class="fas fa-edit"></span></a>
+                <a href="index.php?p=mutasiitem-ubahdata-broke&id='. $row[0] .'"><span class="fas fa-wrench"></span></a>                
+                <a href="index.php?p=mutasiitem-log&id='. $row[0] .'"><span class="fas fa-info-circle"></span></a>
+                ';
+            } else {
+                return '
+                <a href="index.php?p=mutasiitem-ubahdata&id='. $row[0] .'"><span class="fas fa-edit"></span></a>                
+                <a href="index.php?p=mutasiitem-ubahdata-repair&id='. $row[0] .'"><span class="fas fa-ambulance"></span></a>
+                <a href="index.php?p=mutasiitem-log&id='. $row[0] .'"><span class="fas fa-info-circle"></span></a>
+                ';
+            }
+			
+			
 		}
 	)
 	//array( 'db' => 'catatan',     'dt' => 6 )	

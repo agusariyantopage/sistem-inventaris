@@ -17,7 +17,7 @@ if(mysqli_num_rows($pr)>=1){
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Pengajuan Penambahan Inventaris Baru</h1>
+        <h1 class="m-0">Pelaporan Penggunaan Bahan Habis Pakai</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">

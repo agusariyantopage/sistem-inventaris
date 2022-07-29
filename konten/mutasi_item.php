@@ -29,7 +29,7 @@
               </div> 
               <!-- /.card-header -->
               <div class="card-body">               
-                <table id="example2" class="table table-bordered table-striped">
+                <table id="inventaris-rinci-mutasi" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>ID </th>
@@ -41,59 +41,7 @@
                     <th>Aksi</th>
                   </tr>
                   </thead>
-                  <tbody>
-                    <?php
-                      //$sql="select barang.*,kategori,subkategori from barang,kategori,subkategori where barang.id_subkategori=subkategori.id_subkategori and kategori.id_kategori=subkategori.id_kategori";
-                      // Akses Yayasan / Unit Kerja
-                      if($_SESSION['level']==1) {
-                        $sql="select barang_detail.*,barang.*,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja";
-                      } else {
-                        $id_unit= $_SESSION['idunit'];
-                        $sql="select barang_detail.*,barang.*,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja and barang_detail.id_unitkerja=$id_unit";
-                      }
-                      // -- Akses Yayasan / Unit Kerja 
-                      
-                      // echo $sql;
-                      $perintah=mysqli_query($koneksi,$sql);
-                      while ($r=mysqli_fetch_array($perintah)) {     
-                    ?>              
-                      <tr>
-                        <td>
-                          <?= $r['id_barang_detail']; ?>
-                            
-                          </td>                        
-                        <td><?= $r['deskripsi']; ?></td>                         
-                        <td><?= $r['lokasi']; ?></td> 
-                        <td>
-                          <?php
-                            if ($r['kondisi']=='Baik') {
-                              echo "<span class='badge badge-success'>";
-                            } else {
-                              echo "<span class='badge badge-danger'>";
-                            }
-                           echo $r['kondisi']; 
-                           echo "</span>";
-                           ?>                          
-                        </td> 
-                        <td><?= $r['nama_panjang']; ?></td>
-                        <td><?= $r['perubahan_terakhir']; ?></td> 
-                        <td>
-                        <a href="index.php?p=mutasiitem-ubahdata&id=<?= $r['id_barang_detail']; ?>"><span class="fas fa-edit"></span></a>
-                        <?php
-                          if($r['kondisi']=='Baik'){
-                            echo "<a href='index.php?p=mutasiitem-ubahdata-broke&id=$r[id_barang_detail]'><span class='fas fa-wrench'></span></a>";
-                          } else {  
-                            echo "<a href='index.php?p=mutasiitem-ubahdata-repair&id=$r[id_barang_detail]'><span class='fas fa-ambulance'></span></a>";
-                          }   
-                        ?>
-                        <!-- <a href="#"><span class="fas fa-money-check-alt"></span></a> -->
-                        <a href="index.php?p=mutasiitem-log&id=<?= $r['id_barang_detail']; ?>"><span class="fas fa-info-circle"></span></a>
-                        </td> 
-                        
-                      </tr>
-                  <?php
-                    }
-                  ?>                     
+                  <tbody>                                
                   </tbody>
                   <tfoot>
                   <tr>
@@ -121,4 +69,24 @@
       <!-- /.container-fluid -->
     </section>
             <!-- Main content -->
+<!-- import jquery -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+<script>
+    $(function() {
+    $('#inventaris-rinci-mutasi').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "paging": true,
+        "lengthChange": false,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+        "ajax": "server-side/datarinci_mutasi.php" 
+    } );
+}) ;
+
+</script>   
           
