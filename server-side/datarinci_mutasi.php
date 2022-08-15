@@ -59,7 +59,14 @@ $columns = array(
 	),
 	//array( 'db' => 'kondisi',     'dt' => 3 ),
 	array('db' => 'nama_panjang',     'dt' => 4),
-	array('db' => 'perubahan_terakhir',     'dt' => 5),
+	array(
+		'db'        => 'nilai_perolehan',
+		'dt'        => 5,
+		'formatter' => function( $nilai, $row ) {
+			return number_format($nilai);      
+        
+		}
+	),
 	array(
 		'db'        => 'kondisi',
 		'dt'        => 6,

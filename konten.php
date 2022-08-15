@@ -125,6 +125,10 @@
 		include "konten/habispakai_yayasan.php";}	
 	elseif ($_GET['p']=='habispakai-rinci'&&$tipeakses=='Yayasan') {
 		include "konten/habispakai_yayasan_rinci.php";}
+	elseif ($_GET['p']=='habispakai-laporan'&&$tipeakses=='Yayasan') {
+		include "konten/habispakai_yayasan_laporan.php";}	
+	elseif ($_GET['p']=='habispakai-rinci'&&$tipeakses=='Yayasan') {
+		include "konten/habispakai_yayasan_rinci.php";}
 
 	elseif ($_GET['p']=='mutasiitem'&&$tipeakses=='Unit'&&$finalda==1) {
 		include "konten/mutasi_item.php";}
@@ -186,7 +190,13 @@
 	elseif ($_GET['p']=='statistikunit'&&$tipeakses=='Yayasan') {
 		include "konten/statistikunit.php";}					
 	elseif ($_GET['p']=='statistikunit') {
-			include "konten/statistikunit.php";}			
+			include "konten/statistikunit.php";}
+	// Konten Manajemen Ruang [START]					
+	elseif ($_GET['p']=='ruang'&&$tipeakses=='Yayasan') {
+		include "konten/ruang.php";}
+	elseif ($_GET['p']=='ruang-jadwal'&&$tipeakses=='Yayasan') {
+		include "konten/ruang-jadwal.php";}
+	// Konten Manajemen Ruang [END]					
 	else {
 		include "konten/akses_ditolak.php";
 	}

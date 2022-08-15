@@ -398,6 +398,7 @@ if($jumlah_delete>=1){
             </ul>
             
           </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tasks"></i>
@@ -419,14 +420,40 @@ if($jumlah_delete>=1){
                   <i class="far fa-circle nav-icon"></i>
                   <p>Statistik Unit Kerja</p>
                 </a>
-              </li> 
-                           
-            </ul>
-            
+              </li>                            
+            </ul>            
           </li>
 <?php
   }
 ?>          
+           <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-building"></i>
+              <p>
+                Ruang  
+                <i class="fas fa-angle-left right"></i>                
+              </p>
+             
+                <span class="badge badge-danger ml-5">Trial</span>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="index.php?p=ruang" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Ruang</p>
+                </a>
+              </li>              
+
+              <li class="nav-item">
+                <a href="index.php?p=ruang-jadwal" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Penjadwalan Ruang</p>
+                </a>
+              </li>                            
+            </ul>            
+          </li>
+
+         
           <li class="nav-item">
             <a href="index.php?p=barcode" class="nav-link">
               <i class="nav-icon fas fa-barcode"></i>
@@ -563,17 +590,34 @@ if($jumlah_delete>=1){
     $('#input-group').DataTable({
       "paging": false,
       "lengthChange": false,
-      "searching": false,
-      "ordering": true,
+      "searching": true,
+      "ordering": false,
       "info": false,
       "autoWidth": false,
-      "responsive": true,
+      "responsive": false,
     });
     easyNumberSeparator({
       selector: '.number-separator',
       separator: ',',
       resultInput: '#result_input',
     })
+
+    $(document).on('click','.ubahruang',function(){    
+   
+      var id_ruang = $(this).data('id');
+      //alert(id_ruang)      
+      // AJAX request
+      $.ajax({
+        url: 'server-side/ruang_ubah.php',
+        type: 'post',
+        data: {id_ruang: id_ruang},
+        success: function(response){ 
+          // Add response in Modal body
+          $('.ubah-ruang').html(response);
+    
+        }
+      });
+    });
     
     //Initialize Select2 Elements
     $('.select2').select2()

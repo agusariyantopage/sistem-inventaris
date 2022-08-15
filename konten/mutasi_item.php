@@ -37,7 +37,7 @@
                     <th>Lokasi</th> 
                     <th>Kondisi</th>
                     <th>Unit</th>                   
-                    <th>Update Terakhir</th>
+                    <th>Nilai Perolehan</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
@@ -50,7 +50,7 @@
                     <th>Lokasi</th> 
                     <th>Kondisi</th> 
                     <th>Unit</th>                   
-                    <th>Update Terakhir</th>
+                    <th>Nilai Perolehan</th>
                     <th>Aksi</th> 
                     
                   </tr>
