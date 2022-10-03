@@ -213,7 +213,7 @@ if($r1['status']=='Disetujui'){
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><b> <?= $r2['deskripsi']; ?></b></h5>
+        <h5 class="modal-title" id="exampleModalLabel"><b> Realisasi Transaksi #<?= $id; ?></b></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
