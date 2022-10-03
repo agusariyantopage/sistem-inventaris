@@ -192,7 +192,7 @@
 <?php
 if($r1['status']=='Disetujui'){
 ?>
-                <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal<?= $r2['id_barang_habispakai']; ?>">Proses Realisasi</button>                
+                <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Proses Realisasi</button>                
 <?php
 }
 ?>                
@@ -209,7 +209,7 @@ if($r1['status']=='Disetujui'){
     </section>
             <!-- Main content -->
 <!-- Modal -->
-<div class="modal fade" id="exampleModal<?= $r2['id_barang_habispakai']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -219,7 +219,7 @@ if($r1['status']=='Disetujui'){
         </button>
       </div>
       <div class="modal-body"> 
-        <form action="aksi_habispakai_realisasi.php" id="proses<?= $r2['id_barang_habispakai']; ?>" method="post">
+        <form action="aksi_habispakai_realisasi.php" id="proses" method="post">
         <div class="form-group">
           <label for="tgl_realisasi">Tanggal Realisasi</label>          
           <input type="date" name="tgl_realisasi" id="tgl_realisasi" class="form-control" required>
