@@ -196,7 +196,14 @@
 		include "konten/ruang.php";}
 	elseif ($_GET['p']=='ruang-jadwal'&&$tipeakses=='Yayasan') {
 		include "konten/ruang-jadwal.php";}
-	// Konten Manajemen Ruang [END]					
+	// Konten Manajemen Ruang [END]		
+
+	// Konten Maintenance [START]					
+	elseif ($_GET['p']=='backup') {
+		include "konten/backup.php";}
+	elseif ($_GET['p']=='restore'&&$tipeakses=='Yayasan') {
+		include "konten/restore.php";}
+	// Konten Maintenance [END]					
 	else {
 		include "konten/akses_ditolak.php";
 	}

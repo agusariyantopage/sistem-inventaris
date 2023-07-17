@@ -423,6 +423,8 @@ if($jumlah_delete>=1){
               </li>                            
             </ul>            
           </li>
+
+          
 <?php
   }
 ?>          
@@ -470,6 +472,30 @@ if($jumlah_delete>=1){
               </p>
             </a>
           </li> 
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                Pemeliharaan
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="index.php?p=backup" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Backup</p>
+
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="index.php?p=restore" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Restore</p>
+                </a>
+              </li>              
+            </ul>
+          </li>
           <li class="nav-item">
             <a href="index.php?p=bantuan" class="nav-link">
               <i class="nav-icon fas fa-question-circle"></i>
