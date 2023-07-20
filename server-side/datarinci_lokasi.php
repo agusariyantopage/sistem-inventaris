@@ -25,7 +25,8 @@ $id_unit = $_SESSION['idunit'];
 $view_name = 'view_data_rinci_' . $id_unit;
 $lok = $_SESSION['lok'];
 //$sql="select barang_detail.*,barang.*,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja and barang_detail.id_unitkerja=$id_unit";
-$sql = "create VIEW " . $view_name . " as select barang_detail.*,deskripsi,spesifikasi,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja and barang_detail.id_unitkerja=$id_unit and md5(lokasi)='$lok'";
+$sql = "create VIEW " . $view_name . " as SELECT t1.lokasi,t1.id_barang_detail,t1.kondisi,t1.tanggal_perolehan,t1.nilai_perolehan,t1.catatan,(SELECT nama_panjang FROM unit_kerja WHERE id_unit=t1.id_unitkerja) AS nama_panjang,(SELECT deskripsi FROM barang WHERE barang.id_barang=t1.id_barang) AS deskripsi,(SELECT spesifikasi FROM barang WHERE barang.id_barang=t1.id_barang) AS spesifikasi FROM barang_detail AS t1 WHERE t1.id_unitkerja=$id_unit and md5(t1.lokasi)='$lok'";
+// $sql = "create VIEW " . $view_name . " as select barang_detail.*,deskripsi,spesifikasi,nama_panjang from barang_detail,barang,unit_kerja where barang_detail.id_barang=barang.id_barang and unit_kerja.id_unit=barang_detail.id_unitkerja and barang_detail.id_unitkerja=$id_unit and md5(lokasi)='$lok'";
 
 
 $sql1 = 'drop view ' . $view_name;
